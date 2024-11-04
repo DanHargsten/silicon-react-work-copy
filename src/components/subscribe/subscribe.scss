@@ -1,0 +1,137 @@
+@use '../../styles/abstracts/breakpoints' as b;
+@use '../../styles/abstracts/button-variables' as bv;
+@use '../../styles/abstracts/colors' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables' as fv;
+
+
+// Helper class to hide elements visually but keep them accessible to screen readers
+.sr-only {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   padding: 0;
+   margin: -1px;
+   overflow: hidden;
+   clip: rect(0, 0, 0, 0);
+   border: 0;
+}
+
+
+.subscribe {
+   // Inline padding to separate the light-grey box from the global wrapper
+   padding-inline: 1rem;
+
+   .subscribe-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-block: 1.5em;
+      border-radius: 0.5rem;
+      background-color: c.$clr-background-secondary;
+      text-align: center;
+
+      // Grid layout for tablet sizes and up
+      @include b.breakpoint(768) {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         align-items: center;
+         text-align: left;
+         padding-inline: 1.5rem;
+      }
+
+      // Increase side padding for large desktop screens
+      @include b.breakpoint(1400) {
+         padding-inline: 6.875em;
+      }
+   }
+
+   // Header section: bell icon and title
+   .subscribe__header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+
+      @include b.breakpoint(768, max) { margin-bottom: 1rem; };  // Adds spacing below header on smaller screens
+
+      .subscribe__bell-icon {
+         margin-bottom: 1rem; // Keeps even padding around the bell icon
+      }
+
+      .subscribe__title {
+         max-width: 15ch; // Ensures title breaks into multiple lines on smaller screens
+
+         // Apply font styling to the title
+         @include fm.text-style(fv.$h5, c.$clr-text-primary, 800, 1.4);
+         text-align: left;
+
+         // Adjust title font size and add more text on larger screens
+         @include b.breakpoint(1200) {
+            max-width: none;
+            @include fm.text-style(fv.$h4, c.$clr-text-primary, 800, 1.4);
+
+            &:after {
+               content: " to stay informed about latest updates";  // Appends additional text on larger screens
+            }
+         }
+      }
+   }
+
+   // Form section: email input and subscribe button
+   .subscribe__form {
+      display: flex;      
+      justify-content: flex-end;
+      align-items: center;
+      width: calc(100% - 1.5rem);  // Full width minus padding on mobile
+
+      @include b.breakpoint(768) {
+           width: 100%;  // Use full width on larger screens
+        }
+
+
+      .subscribe__input-wrapper {
+         position: relative;
+         width: 100%;
+         display: flex;
+         justify-content: flex-end;
+
+         @include b.breakpoint(1200) { width: 90%; }  // Slightly reduce width on large screens for better layout balance
+
+         .subscribe__input {
+            width: 100%;  // Full width to occupy available space
+            padding-left: 1.75rem; // Space for envelope icon
+            border: 1px solid c.$clr-grey-400;
+            border-radius: 0.5rem 0 0 0.5rem;
+            @include fm.font(16, c.$clr-grey-900);
+
+            // Dark mode styling for the input field
+            body.dark-mode & {
+               background-color: #191d27;
+            }
+
+            &::placeholder {
+               color: c.$clr-grey-500; // Lighter color for placeholder text
+               font-style: italic;
+            }
+         }
+
+         .subscribe__input-icon {
+            position: absolute;
+            top: 50%;
+            left: 0.2rem;
+            transform: translateY(-50%);
+            color: c.$clr-grey-500;
+         }
+
+         .subscribe__button {
+            @include bv.btn-primary();  // Apply primary button styling from button-variables
+            padding: 1rem 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+         }
+      }
+   }
+}

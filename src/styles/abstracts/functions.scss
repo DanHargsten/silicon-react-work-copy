@@ -1,0 +1,28 @@
+// ============================================
+// Credit to thecodercoder
+//
+// youtube.com/@TheCoderCoder
+// github.com/thecodercoder
+
+@use 'sass:math';
+
+// Custom function to convert pixels to rem units
+// Takes a unitless pixel value as input and converts it to rem
+@function rem($pixel) {
+   @if math.is-unitless($pixel) {
+      // Divide the pixel value by 16 (default browser font-size) and append 'rem'
+      @return math.div($pixel, 16) + rem;
+   } @else {
+      // Throw an error if units are provided, since the function expects a number
+      @error 'Don\'t use units when using the rem() function; only numbers';
+   }
+}
+
+// Same as above, but for "em" instead of "rem"
+@function em($pixel) {
+   @if math.is-unitless($pixel) {
+      @return math.div($pixel, 16) + em;
+   } @else {
+      @error 'Don\'t use units when using the em() function; only numbers';
+   }
+}

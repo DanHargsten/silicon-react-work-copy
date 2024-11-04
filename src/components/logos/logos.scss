@@ -1,0 +1,65 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/colors.scss' as c;
+
+.logos {
+   display: none; // Hide all logos on mobile
+
+   // Show logos section starting from tablet screen size (768px and up)
+   @include b.breakpoint(768) { display: block; };
+
+
+   .logos-container {
+      display: grid;
+
+      // Set grid columns based on screen size
+      grid-template-columns: repeat(4, 1fr);
+      @include b.breakpoint(1200) { grid-template-columns: repeat(5, 1fr); };
+      @include b.breakpoint(1400) { grid-template-columns: repeat(6, 1fr); };
+   };
+
+
+   .logos__cards {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 10.625rem;
+      height: 100px;
+      max-width: 100%;  // Ensure the card width doesn't exceed container
+      margin-inline: auto;
+      border-radius: 0.5rem;
+      border: 1px solid c.$clr-grey-300;
+
+      // Making the cards a smaller to give some space on smaller screen sizes
+      @media (min-width: 768px) and (max-width: 991px) {
+         width: 9.75rem;
+      }
+
+      body.dark-mode & {
+         border: 1px solid rgba(#ffffff, $alpha: 0.15);
+      };
+   };
+
+
+   // Show only the first 4 logo cards, hide the last 2
+   @include b.breakpoint(768) {
+      .logos__cards:nth-last-of-type(-n+2) {display: none; } ;
+   };
+
+   // Show the first 5 logo cards. Not the most gracious solution perhaps :D
+   @include b.breakpoint(1200) {
+      .logos__cards:nth-last-of-type(-n+2) { display: flex; };
+      .logos__cards:nth-last-of-type(-n+1) { display: none; };
+   };
+
+   // Show all logo cards
+   @include b.breakpoint(1400) {
+      .logos__cards:nth-last-of-type(-n+1) { display: flex; };
+   };
+
+
+   img {
+      max-width: 85%;
+      aspect-ratio: 1;
+      object-fit: contain;
+   };
+};

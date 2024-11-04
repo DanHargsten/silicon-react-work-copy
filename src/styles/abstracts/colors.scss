@@ -1,0 +1,43 @@
+$clr-grey-100: #F3F6FF;
+$clr-grey-200: #EFF2FC;
+$clr-grey-300: #E2E5F1;
+$clr-grey-400: #D4D7E5;
+$clr-grey-500: #B4B7C9;
+$clr-grey-600: #9397AD;
+$clr-grey-700: #565973;
+$clr-grey-800: #33354D;   
+$clr-grey-900: #0B0F19;
+
+
+$clr-primary: #6366F1;
+$clr-info: #4C82F7;
+$clr-nav: #33354D;
+
+// Used on a plethoria of stuff. 
+$clr-1: #131022;
+$clr-2: #585C7B;
+
+
+$clr-bg: #FFFFFF;
+$clr-bg-gradient: linear-gradient(to top,
+      rgba(218, 70, 239, 0.05) 0%,
+      rgba(99, 102, 241, 0.08) 35%,
+      rgba(99, 102, 241, 0.04) 70%,
+      rgba(0, 0, 0, 0.0) 100%);
+
+$clr-btn-text-primary: #FFFFFF;
+$clr-btn-text-circle: #3E4265;
+$clr-btn-toggle-slider: #FFFFFF;
+$clr-btn-round: #FFFFFF;
+
+$clr-btn-hover-primary: hsl(from $clr-primary h s calc(l - 5));
+
+
+// Colors for light and dark themes
+$clr-background-primary: var(--background-primary);
+$clr-background-secondary: var(--background-secondary);
+$clr-background-accent: var(--background-accent);
+
+$clr-text-primary: var(--text-primary);
+$clr-text-secondary: var(--text-secondary);
+$clr-text-accent: var(--text-accent);

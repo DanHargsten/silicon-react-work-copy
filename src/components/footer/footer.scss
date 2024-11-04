@@ -1,0 +1,26 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/colors.scss' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+
+footer {
+   padding-bottom: 3.4rem;
+
+   .footer-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      // Make it one line on tablet and up
+      @include b.breakpoint(768) {
+         flex-direction: row;
+         gap: 0.3rem;
+      }
+   }
+
+   p {
+      @include fm.text-style(fv.$b-sm, c.$clr-text-accent, 400, 1.6);
+   }
+}

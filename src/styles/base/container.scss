@@ -1,0 +1,15 @@
+// @use '../abstracts/breakpoints' as b;
+// @use '../abstracts/functions' as f;
+
+
+// // Global container with max width at different breakpoints
+// .container {   
+//    width: 100%;
+//    margin-inline: auto;
+
+//    @include b.breakpoint(576) { width: f.rem(540); }     // Small screens
+//    @include b.breakpoint(768) { width: f.rem(720); }     // Tablets
+//    @include b.breakpoint(992) { width: f.rem(960); }     // Small desktops
+//    @include b.breakpoint(1200) { width: f.rem(1140); }   // Large desktops
+//    @include b.breakpoint(1400) { width: f.rem(1320); }   // Extra large screens
+// }

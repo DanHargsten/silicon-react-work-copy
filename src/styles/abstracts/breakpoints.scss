@@ -1,0 +1,22 @@
+// Credit to thecodercoder
+//
+// youtube.com/@TheCoderCoder
+// github.com/thecodercoder
+
+@use '../abstracts/functions' as f;
+
+@mixin breakpoint($size, $direction: 'min') {
+   $value: f.rem($size);
+
+   @if $direction == 'min' {
+      @media (width >= $value) {
+         @content;
+      }
+   } @else if $direction == 'max' {
+      @media (width < $value) {
+         @content;
+      }
+   } @else {
+      @error 'Use either "min" or "max" for $direction'
+   }
+}

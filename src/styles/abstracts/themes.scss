@@ -1,0 +1,27 @@
+@use './colors.scss' as c;
+
+:root {
+   --background-primary: #ffffff;
+   --background-secondary: #f3f6ff;
+   --background-accent: #ffffff;
+
+   --text-primary: #0B0F19; // 900
+   --text-secondary: #565973; // 700
+   --text-accent: #9397AD; // 600   
+
+}
+
+body.dark-mode {
+   --background-primary: #0B0F19;
+   --background-secondary: #151822;
+   --background-accent: #1e212b;
+
+   --text-primary: #ffffff;
+   --text-secondary: #B4B7C9;
+   --text-accent: #9397AD;
+}
+
+
+// .wrapper {
+//    background-color: var(--background-primary);
+// }
