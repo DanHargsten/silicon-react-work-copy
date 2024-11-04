@@ -1,0 +1,84 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/colors.scss' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+// Darkmode toggle
+.navbar__darkmode-toggle {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 11rem;
+   z-index: 110;
+
+   @include b.breakpoint(1200, max) {
+      margin-right: 6rem;
+   }
+
+   @include b.breakpoint(768, max) {
+      margin-right: 3rem;
+   }
+
+   .navbar__darkmode-label {
+      @include fm.text-style(fv.$nav, c.$clr-text-primary, 600);
+      padding-right: 0.5em;
+      white-space: nowrap;
+
+      @include b.breakpoint(768, max) {
+         display: none;
+      }
+   }
+
+
+   .navbar__darkmode-switch {
+      --_w: 2.875rem;
+      --_h: 1.5rem;
+
+      width: var(--_w);
+      height: var(--_h);
+      position: relative;
+      flex-shrink: 0;
+      display: inline-block;
+
+      // Hide default checkbox
+      input[type="checkbox"] {
+         width: 0;
+         height: 0;
+         opacity: 0;
+      }
+
+      .navbar__darkmode-slider {
+         position: absolute;
+         cursor: pointer;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         background-color: c.$clr-grey-600;
+         border-radius: 100vw;
+         transition: 300ms all ease-in-out;
+
+         &::before {
+            content: '';
+            position: absolute;
+            top: 0.125rem;
+            left: 0.125rem;
+            height: calc(100% - 0.25em);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: c.$clr-btn-toggle-slider;
+
+            transition: 300ms all ease-in-out;
+         }
+      }
+
+      // Dark mode toggle switch with animation
+      input[type="checkbox"]:checked+.navbar__darkmode-slider::before {
+         left: calc(100% - var(--_h) + 0.125em);
+      }
+
+      input[type="checkbox"]:checked+.navbar__darkmode-slider {
+         background-color: c.$clr-primary;
+      }
+   }
+}

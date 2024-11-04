@@ -19,10 +19,8 @@
 
 
 .subscribe {
-   // Inline padding to separate the light-grey box from the global wrapper
-   padding-inline: 1rem;
 
-   .subscribe-container {
+   .container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -83,7 +81,7 @@
       display: flex;      
       justify-content: flex-end;
       align-items: center;
-      width: calc(100% - 1.5rem);  // Full width minus padding on mobile
+      width: calc(100% - 3rem);  // Full width minus padding on mobile
 
       @include b.breakpoint(768) {
            width: 100%;  // Use full width on larger screens
@@ -100,7 +98,7 @@
 
          .subscribe__input {
             width: 100%;  // Full width to occupy available space
-            padding-left: 1.75rem; // Space for envelope icon
+            padding-left: 2rem; // Space for envelope icon
             border: 1px solid c.$clr-grey-400;
             border-radius: 0.5rem 0 0 0.5rem;
             @include fm.font(16, c.$clr-grey-900);
@@ -119,18 +117,21 @@
          .subscribe__input-icon {
             position: absolute;
             top: 50%;
-            left: 0.2rem;
+            left: 0.5rem;
             transform: translateY(-50%);
             color: c.$clr-grey-500;
          }
 
-         .subscribe__button {
-            @include bv.btn-primary();  // Apply primary button styling from button-variables
-            padding: 1rem 1rem;
+         .btn-medium {
+            // Set initial padding to create a more compact button for smaller screens
+            padding: 0.9em 1.25em;
             border-radius: 0 0.5rem 0.5rem 0;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
+
+            // Adjust button size and styling on larger screens
+            @include b.breakpoint(992) {
+               @include bv.btn-size(large);
+               border-radius: 0 0.5rem 0.5rem 0;
+            };
          }
       }
    }

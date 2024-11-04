@@ -1,0 +1,65 @@
+@use '../abstracts/breakpoints.scss' as b;
+@use '../abstracts/button-variables' as bv;
+@use '../abstracts/colors' as c;
+@use '../abstracts/font-mixins.scss' as fm;
+@use '../abstracts/font-variables.scss' as fv;
+
+.btn-primary {
+   @include bv.btn-primary();
+}
+
+.btn-small {
+   @include bv.btn-size('small');
+}
+
+.btn-medium {
+   @include bv.btn-size('medium');
+}
+
+.btn-large {
+   @include bv.btn-size('large');
+}
+
+
+.btn-market {
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;  
+   width: calc(100% - 1.5rem);
+   border-radius: 0.5rem;
+   background-color: c.$clr-market-background;
+   padding: 0.5em 1em;
+
+   @include b.breakpoint(768) {
+      width: auto;
+      padding: 0.6em 1.3em;
+   }
+
+   img {
+      height: 3em;
+
+      @include b.breakpoint(768) {
+         height: 2em;
+      }
+   }
+
+   &:hover {
+      background-color: hsl(from c.$clr-1 h s calc(l + 5));
+   }
+}
+
+.btn-circle {
+   i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.75rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      font-size: 1rem;
+      color: c.$clr-btn-text-circle;
+      background-color: c.$clr-btn-round;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+   }
+}

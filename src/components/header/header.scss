@@ -1,0 +1,70 @@
+@use '../../styles/abstracts/colors' as c;
+
+.navbar {
+   position: relative;
+   background-color: c.$clr-background-primary;
+
+   // From Joakim Lindh
+   // Skip link for accessibility - visible when focused
+   .skip-link {
+      position: absolute;
+      top: 5rem;
+      left: -100vw;
+      display: inline-block;
+      outline: none;
+      padding: 1rem;
+      background-color: c.$clr-bg;
+      border: 1px solid c.$clr-primary;
+      border-radius: 0 0.6rem 0.6rem 0;
+      transition: 250ms;
+
+      &:focus {
+         left: 0;
+      }
+   }
+
+   .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 0.5rem;
+      position: relative;
+   }
+
+   ;
+
+
+
+
+   //    // Mobile menu button
+   //    .navbar__menu-toggle {
+   //       background-color: transparent;
+   //       border: none;
+   //       font-size: 1.5rem;
+   //       position: absolute;
+   //       right: 0;
+   //       padding-right: 1rem;
+   //       // display: none;
+   //       z-index: 110;
+
+   //       // @include b.breakpoint(1200, max) {
+   //       //    display: flex;
+   //       // }
+   //    }
+
+
+
+
+
+
+   //    // Mobile menu toggle for smaller screen sizes
+   //    @include b.breakpoint(1200, max) {
+   //       .navbar__menu-toggle[aria-expanded="true"]~.main-menu {
+   //          animation: openMenu 250ms forwards
+   //       }
+
+   //       .navbar__menu-toggle[aria-expanded="false"]~.main-menu {
+   //          animation: closeMenu 250ms forwards
+   //       }
+   //    }
+}

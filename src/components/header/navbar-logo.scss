@@ -1,0 +1,15 @@
+@use '../../styles/abstracts/colors.scss' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+// Logo style
+.navbar__logo {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+
+   &-name {
+      @include fm.text-style(fv.$h4, c.$clr-text-primary, 800);
+      margin-bottom: 0.1rem;
+   };
+};

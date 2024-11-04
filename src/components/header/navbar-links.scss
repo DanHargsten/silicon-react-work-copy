@@ -1,0 +1,59 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/button-variables.scss' as bv;
+@use '../../styles/abstracts/colors.scss' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+// // Navbar menu
+.main-menu {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-left: 6rem;
+   z-index: 10;
+
+
+   .navbar__link {
+      @include fm.text-style(fv.$nav, c.$clr-text-primary, 600);
+
+      &:hover {
+         color: darken(c.$clr-primary, 10%);
+      }
+   }
+
+   .navbar__link--action {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+   }
+
+   @include b.breakpoint(1200, max) {
+      position: absolute;
+      display: flex;
+      top: 100%;
+      right: 0;
+      flex-direction: column-reverse;
+      justify-content: center;
+      gap: 1rem;
+      padding-block: 2rem;
+      background-color: c.$clr-bg;
+      box-shadow: 0 5px 5px -5px #00000020;
+
+      .navbar__link--action {
+         position: relative;
+         right: 0;
+      }
+   }
+
+   .navbar-container {
+      display: flex;
+      gap: 2rem;
+   }
+
+   .navbar__link-button {
+      @include bv.btn-size(small);
+      @include bv.btn-primary();
+   }
+}

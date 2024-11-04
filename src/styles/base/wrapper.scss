@@ -1,18 +1,5 @@
-@use '../abstracts/breakpoints' as b;
 @use '../abstracts/colors.scss' as c;
-@use '../abstracts/functions' as f;
 
-
-// Global wrapper with max width at different breakpoints
 .wrapper {   
-   border: 2px dashed rgba(#333, 0.5);
-   width: 100%;
-   margin-inline: auto;
    background-color: c.$clr-background-primary;
-
-   @include b.breakpoint(576) { width: f.rem(540) };
-   @include b.breakpoint(768) { width: f.rem(720) };
-   @include b.breakpoint(992) { width: f.rem(960) };
-   @include b.breakpoint(1200) { width: f.rem(1140) };
-   @include b.breakpoint(1400) { width: f.rem(1320) };
 };

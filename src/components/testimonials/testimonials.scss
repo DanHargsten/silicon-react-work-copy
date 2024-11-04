@@ -1,0 +1,68 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/colors.scss' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+.testimonials {
+   padding-block: 5em;
+   background-color: c.$clr-background-secondary;
+
+   .wrapper {
+      width: 100%;
+   }
+
+   // Hide the section on screens smaller than 1400px
+   @include b.breakpoint(1400, max) { display: none; }
+   
+   .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+   }
+
+   // Main heading for testimonials
+   &__heading { @include fm.text-style(fv.$h1, c.$clr-text-primary, 800); }
+
+   // Styling for each card
+   &__card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: c.$clr-background-accent;
+      border-radius: 0.5rem;
+      padding: 1.5em;
+      padding-top: 3em;
+      gap: 1.5rem;
+      box-shadow: 0 0 4px #00000015; // Subtle shadow for depth
+
+   // Quote icon inside each card
+      .testimonials__quote {
+         position: absolute;
+         top: -6%;
+         left: 1rem;
+         height: 3.8rem;
+      }
+      .testimonials__rating {
+         width: 88px;
+         height: 16px;
+      }
+      
+      
+      .testimonials__text { @include fm.text-style(fv.$b-lg, c.$clr-text-secondary); }
+      
+      // User info section
+      .testimonials__user-info {
+         display: flex;
+         gap: 0.7rem;  // Space between user photo and text
+
+         .testimonials__user-text {
+            display: flex;
+            flex-direction: column;
+            
+            .testimonials__user-name { @include fm.text-style(fv.$b-lg, c.$clr-text-secondary); }
+            .testimonials__user-role { @include fm.text-style(fv.$b-sm, c.$clr-text-accent); }
+         }
+      }
+   }
+}

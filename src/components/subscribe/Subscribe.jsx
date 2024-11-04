@@ -7,7 +7,7 @@ import envelope from '../../assets/images/icons/envelope.svg';
 const Subscribe = () => {
   return (
     <section className="subscribe">
-      <div className="subscribe-container">
+      <div className="container">
 
         {/* Bell-icon and header */}
         <div className="subscribe__header">
@@ -21,7 +21,7 @@ const Subscribe = () => {
           <div className="subscribe__input-wrapper">
             <img className="subscribe__input-icon" src={envelope} alt="Envelope icon." />
             <input className="subscribe__input" id="email" type="email" placeholder="Enter your email" aria-label="Enter your email to subscribe to our newsletter." />
-            <button className="subscribe__button">Subscribe</button>
+            <button className="subscribe__button btn-medium btn-primary">Subscribe</button>
           </div>
         </form>
 

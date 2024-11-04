@@ -1,0 +1,37 @@
+@use '../../styles/abstracts/breakpoints' as b;
+@use '../../styles/abstracts/colors' as c;
+@use '../../styles/abstracts/font-mixins' as fm;
+@use '../../styles/abstracts/font-variables' as fv;
+
+.showcase {
+   padding-top: 2rem;
+   background-image: c.$clr-bg-gradient;
+ 
+   .container {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+         "headline"
+         "content";                 
+     
+      gap: 2rem;
+      justify-items: center;
+      align-items: center;
+ 
+     @include b.breakpoint(768) {
+         grid-template-columns: 1fr 1fr;
+         grid-template-rows: auto auto;
+         grid-template-areas:
+            "headline headline"
+            "content image";
+     }
+     @include b.breakpoint(1400) {
+         grid-template-columns: 1fr 1fr;
+         grid-template-rows: auto auto;
+         grid-template-areas:
+            "headline image"
+            "content image";
+     }
+   }
+}
