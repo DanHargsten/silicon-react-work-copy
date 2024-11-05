@@ -1,0 +1,121 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/button-variables' as bv;
+@use '../../styles/abstracts/colors' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+.faq {
+   padding-top: 3em;
+
+   .faq__heading {
+      grid-area: heading;
+      text-align: center;
+      padding-inline: 1rem;
+
+      &-title {
+         width: 90%;
+         margin: 0 auto;
+         padding-bottom: 1em;
+         @include fm.text-style(fv.$h4, c.$clr-text-primary, 800);
+
+         @include b.breakpoint(768) {
+            @include fm.text-style(fv.$h2, c.$clr-text-primary, 800);
+         }
+      }
+
+      &-text {
+         padding-bottom: 3em;
+         @include fm.text-style(fv.$b-lg, c.$clr-text-secondary);
+         text-wrap: pretty;
+      }
+   }
+
+   .faq__accordion {
+      grid-area: faq;
+      margin-inline: 0.75rem;
+      padding-inline: 1.5em;
+      border: 1px solid c.$clr-grey-300;
+      border-radius: 1rem;
+      
+      @include b.breakpoint(1400) {
+         display: flex;
+         flex-direction: column;
+      }
+      
+
+      // .faq__item {
+      //    // padding-inline: 1.5em;
+
+      // }
+
+      .faq__question {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         border-bottom: 1px solid c.$clr-grey-300;
+
+         
+         &-text {
+            padding-block: 1em;
+            padding-left: 0.5em;
+            text-wrap: pretty;
+            @include fm.text-style(fv.$h6, c.$clr-text-primary, 600);
+         }
+
+         .btn-circle {
+            background-color: transparent;
+            border: none;
+            
+            i {
+               background-color: c.$clr-grey-100;
+               transition: transform 0.4s; //
+            }
+         }
+
+         .active i {
+            transform: rotate(180deg); 
+         }
+      }
+
+      .faq__answer {
+         padding: 1.5rem;     // Kolla
+         display: none;
+         overflow: hidden;   
+         @include fm.text-style(fv.$b-sm, c.$clr-text-secondary);
+      }
+
+      .active .faq__answer {
+         display: block;
+      }
+   }
+
+   .faq__contact {
+      grid-area: contact;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      
+      .contact-box {
+         padding-block: 4em;
+      }
+      
+      .contact-box-btn {
+         @include bv.btn-size('medium');
+         @include bv.btn-primary();
+      
+         &::after {
+            content: " now";
+         }
+      }
+
+      .contact-box-text {
+         display: none;
+      }
+      
+      .contact-box-hide {
+         display: none;
+      }
+   }   
+    
+}

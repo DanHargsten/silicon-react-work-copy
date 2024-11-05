@@ -44,8 +44,9 @@
       }
    }
 
-   &:hover {
-      background-color: hsl(from c.$clr-1 h s calc(l + 5));
+   &:hover, &:focus-visible {
+      transition: 250ms;
+      background-color: c.$clr-market-background-hover;
    }
 }
 

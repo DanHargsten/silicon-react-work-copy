@@ -4,8 +4,8 @@
 @use '../../styles/abstracts/font-mixins.scss' as fm;
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
-// // Navbar menu
-.main-menu {
+.navbar__links-container {
+   border: 2px dashed #333;
    width: 100%;
    display: flex;
    align-items: center;
@@ -13,21 +13,50 @@
    margin-left: 6rem;
    z-index: 10;
 
+   .navbar__links-group {
+      display: flex;
+      gap: 2.5rem;
+   }
 
-   .navbar__link {
+   .navbar__link-text {
+      position: relative;
       @include fm.text-style(fv.$nav, c.$clr-text-primary, 600);
 
+      transition: 250ms;
+
       &:hover {
-         color: darken(c.$clr-primary, 10%);
+         color: c.$clr-primary;
       }
    }
 
-   .navbar__link--action {
+   .navbar__link-text::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: c.$clr-primary;
+      transition: 250ms;
+   }
+
+   .navbar__link-text:hover::before {
+      width: 100%;
+   }
+
+
+   .navbar__auth-button {
       position: absolute;
       right: 0.75rem;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-50%); 
+      
+      .navbar__auth-icon {
+         padding-right: 0.5rem;
+      }
    }
+   
+
 
    @include b.breakpoint(1200, max) {
       position: absolute;
@@ -53,7 +82,7 @@
    }
 
    .navbar__link-button {
-      @include bv.btn-size(small);
+      // @include bv.btn-size(small);
       @include bv.btn-primary();
    }
 }

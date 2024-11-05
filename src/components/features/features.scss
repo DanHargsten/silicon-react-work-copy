@@ -6,7 +6,7 @@
 .features {
 
    // Increase padding on larger screens
-   @include b.breakpoint(1400) { padding-block: 5rem; }
+   // @include b.breakpoint(1400) { padding-block: 5rem; }
    
    // Layout adjustments for large screens
    .container {

@@ -10,7 +10,8 @@
    --text-accent: #9397AD; // 600   
 
    --market-background: #131022;
-   // --market-text: #ffffff;
+   --market-background-hover: #1a162f;
+   // --market-background-hover: #241f41;
 }
 
 body.dark-mode {
@@ -23,7 +24,7 @@ body.dark-mode {
    --text-accent: #9397AD;
 
    --market-background: #EFF2FC;
-   // --market-text: #3E4265;
+   --market-background-hover: #d2daf7;
 }
 
 

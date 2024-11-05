@@ -65,28 +65,28 @@ const Header = () => {
 
 
 
-  useEffect(() => {
-    const mainMenu = document.querySelector('.main-menu');
+  // useEffect(() => {
+  //   const mainMenu = document.querySelector('.main-menu');
 
-    if (!mainMenu) return;
+  //   if (!mainMenu) return;
 
-    if (isMenuOpen) {
-      mainMenu.classList.remove('hide');
-      mainMenu.style.animation = 'openMenu 300ms forwards';
-    } else {
-      mainMenu.style.animation = 'closeMenu 300ms forwards';
-      // mainMenu.addEventListener('animationend', () => {
-      //   mainMenu.classList.add('hide');        
-      // }, { once: true });
-      //
-      const hideMenu = () => {
-        mainMenu.classList.add('hide');
-        mainMenu.removeEventListener('animationend', hideMenu);
-        setTimeout(hideMenu, 300);
-      }
-      //
-    }
-  }, [isMenuOpen]);
+  //   if (isMenuOpen) {
+  //     mainMenu.classList.remove('hide');
+  //     mainMenu.style.animation = 'openMenu 300ms forwards';
+  //   } else {
+  //     mainMenu.style.animation = 'closeMenu 300ms forwards';
+  //     // mainMenu.addEventListener('animationend', () => {
+  //     //   mainMenu.classList.add('hide');        
+  //     // }, { once: true });
+  //     //
+  //     const hideMenu = () => {
+  //       mainMenu.classList.add('hide');
+  //       mainMenu.removeEventListener('animationend', hideMenu);
+  //       setTimeout(hideMenu, 300);
+  //     }
+  //     //
+  //   }
+  // }, [isMenuOpen]);
 
 
   return (
@@ -94,8 +94,9 @@ const Header = () => {
       <a href="#" className="skip-link">Skip to main content</a>
       <div className="container">
         <NavbarLogo />
-        <NavbarMenuToggle isOpen={isMenuOpen} onClick={toggleMenu} />
-        {isMenuOpen && <NavbarLinks />}
+        {/* <NavbarMenuToggle isOpen={isMenuOpen} onClick={toggleMenu} /> */}
+        {/* {isMenuOpen && <NavbarLinks />} */}
+        <NavbarLinks />
         <NavbarDarkToggle isDarkMode={isDarkMode} onToggle={toggleDarkMode} />
       </div>
     </nav>

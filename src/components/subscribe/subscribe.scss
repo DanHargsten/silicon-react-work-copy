@@ -52,6 +52,7 @@
       gap: 1rem;
 
       @include b.breakpoint(768, max) { margin-bottom: 1rem; };  // Adds spacing below header on smaller screens
+      @include b.breakpoint(1200) { padding-block: 2rem; }  // Add padding on larger screen to incrase 
 
       .subscribe__bell-icon {
          margin-bottom: 1rem; // Keeps even padding around the bell icon
