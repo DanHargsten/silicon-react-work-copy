@@ -1,0 +1,19 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/colors.scss' as c;
+
+// ---------------------------------------
+// Accordion Section
+// Styles for the accordion container in the FAQ section
+// ---------------------------------------
+.faq__accordion {
+   grid-area: faq;
+   margin-inline: 0.75rem;
+   padding-inline: 1.5em;
+   border: 1px solid c.$clr-grey-300;
+   border-radius: 1rem;
+   
+   @include b.breakpoint(1400) {
+      display: flex;
+      flex-direction: column;
+   }
+}

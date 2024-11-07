@@ -1,0 +1,65 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/colors.scss' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+
+// ==========================================
+// FAQ Contact Section
+// 
+// Handles the layout and styling for the FAQ contact section.
+// - Mobile: Displays a single "Contact us now" button centered.
+// - Tablet: Shows two contact boxes with icons, each providing a different contact option.
+// ==========================================
+.faq__contact {
+   grid-area: contact;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-top: 3rem;
+
+   // ---- Mobile button styling, hidden on larger screens ----
+   &-mobile {
+      @include b.breakpoint(765) { display: none; }
+   }
+
+   // ---- Tablet/Desktop box container, hidden on smaller screens ----
+   &-tablet {
+      @include b.breakpoint(765, max) { display: none; }
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+      width: 100%;
+   }
+
+   
+   // ---------------------------------------
+   // FAQ Contact Box
+   // Styles for each contact box displayed in tablet/desktop views
+   // ---------------------------------------
+   .contact__box {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding-block: 1.75rem;
+      padding-left: 1.5rem;
+      border: 1px solid c.$clr-grey-300;
+      border-radius: 0.5rem;
+
+      // ---- Text styling for the descriptive text inside the box ----
+      &-text {
+         @include fm.text-style(fv.$b-sm, c.$clr-text-secondary, 400, 1.6);
+      }
+
+      // ---- Link styling. Modifier classes for link colors: primary and success ----
+      &-link {
+         @include fm.text-style(fv.$b-sm, c.$clr-primary, 600, 1.6);
+
+         &-primary { color: c.$clr-primary; }
+         &-success { color: c.$clr-success; }
+      }
+   }
+}   

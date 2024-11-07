@@ -1,0 +1,39 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/colors' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+// ==========================================
+// FAQ Header Section
+// 
+// Styles for the heading section of the FAQ page
+// - Includes title and subtitle text styling
+// - Responsive adjustments for title size at larger breakpoints
+// ==========================================
+
+.faq__heading {
+   grid-area: heading;
+   text-align: center;
+   padding-inline: 1rem;
+
+   // ---- Title Styling ----
+   &-title {
+      width: 90%;
+      margin-inline: auto;
+      padding-bottom: 1em;
+      text-wrap: pretty;
+      @include fm.text-style(fv.$h4, c.$clr-text-primary);
+
+      @include b.breakpoint(768) {
+         @include fm.text-style(fv.$h2, c.$clr-text-primary);
+      }
+   }
+
+   // ---- Subtext Styling ----
+   &-text {
+      margin-inline: auto;
+      padding-bottom: 3em;
+      @include fm.text-style(fv.$b-lg, c.$clr-text-secondary, 400, 1.6);
+      text-wrap: pretty;
+   }
+}

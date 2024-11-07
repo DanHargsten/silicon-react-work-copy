@@ -1,0 +1,87 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/button-variables' as bv;
+@use '../../styles/abstracts/colors' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+// ==========================================
+// FAQ Item Component
+// 
+// Styles for individual FAQ items in the accordion list
+// - Question section with toggle button
+// - Answer section with expandable content
+// ==========================================
+
+// ---------------------------------------
+// Question Section
+// - Displays FAQ question text with a toggle button
+// ---------------------------------------
+.faq__item-question {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-block: 0.6rem;
+   cursor: pointer;
+
+   
+   // ---- Text Styling ----
+   &--text {
+      padding-block: 1em;
+      padding-inline: 0.5em;
+      text-wrap: pretty;
+      @include fm.text-style(fv.$h6, c.$clr-text-primary, 600);
+
+      @include b.breakpoint(768) { line-height: 1.6; }
+   }
+
+   // ---- Button Styling ----
+   .btn-circle {
+      background-color: transparent;
+      border: none;
+      
+      i {
+         background-color: c.$clr-grey-100;
+         font-size: 1.75rem;
+      }
+   }
+   
+   // Toggle state styling for open FAQ items
+   .faq__item.open .btn-circle i {
+      transform: rotate(180deg);
+      background-color: c.$clr-primary;
+      color: #fff
+   }
+}
+
+
+
+// ---------------------------------------
+// Answer Section
+// - Displays FAQ answer text, hidden by default
+// - Expands when FAQ item is opened
+// ---------------------------------------
+.faq__item-answer {
+   display: grid;
+   grid-template-rows: 0fr;
+   padding-inline: 0.5rem;
+   overflow: hidden;
+
+   @include fm.text-style(fv.$b-sm, c.$clr-text-secondary, 400, 1.6);
+
+   transition: grid-tamplate-rows 350ms, padding-bottom 350ms;
+
+   &--expand {
+      min-height: 0px;
+   }
+}
+
+// Styles for open state of answer section
+.open .faq__item-answer {
+   grid-template-rows: 1fr;
+   padding-bottom: 0rem;
+}
+
+// Styles for open state of question section
+.open .faq__item-question {
+   padding-bottom: 0rem;
+}
