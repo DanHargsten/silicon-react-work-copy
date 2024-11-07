@@ -1,7 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import Faqs from './components/faqs/Faqs';
+// import Faqs from './components/faqs/Faqs';
+
 import Features from './components/features/Features';
 import FeaturesExtended from './components/features-extended/FeaturesExtended';
 import Footer from './components/footer/Footer';
@@ -15,6 +16,8 @@ import Testimonials from './components/testimonials/Testimonials';
 import './styles/base/wrapper.scss';
 import './styles/abstracts/themes.scss';
 import './index.scss';
+// import FaqItem from './components/faqs/FaqItem';
+import FaqList from './components/faqs/FaqList';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -27,7 +30,9 @@ createRoot(document.getElementById('root')).render(
         <Slider />
         <FeaturesExtended />
         <Testimonials />
-        <Faqs />
+        {/* <FaqItem /> */}
+        <FaqList />
+        {/* <Faqs /> */}
         <Subscribe />
         <Footer year={2024} credit={"MadrasThemes"} />
       </div>

@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import './faqs.scss';
 
 
-const Faqs = () => {
+const FaqItem = ({ question, answer }) => {
+
+  // State to track if the question is opened or closed
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Function that handles click to toggle between open and close
+  const toggleOpen = () => setIsOpen(!isOpen);
+
+
   return (
     <section className="faq">
       <div className="container">
@@ -17,21 +25,25 @@ const Faqs = () => {
        <div className="faq__accordion">  
 
         {/* Accordion element structure by Joakim Lindh */}
-        <div className="faq__item">
-            <div className="faq__item-question">
-              <p className="faq__item-question--text">What happens if I forget or lose my password?</p>
-              <button className="btn-circle">
-                <i class='bx bx-chevron-down'></i>
-              </button>
+        <div className={`faq__item ${isOpen ? 'open' : ''}`}>
+          
+          {/* Question section */}
+          <div className="faq__item-question" onClick={toggleOpen}>
+            <p className="faq__item-question--text">{question}</p>
+            <button className="btn-circle">
+              <i className='bx bx-chevron-down'></i>
+            </button>
+          </div>
+
+          {/* Answer section */}
+          <div className="faq__item-answer">
+            <div className="faq__item-answer--expand">
+              {isOpen && <p>{answer}</p>}
             </div>
-            <div className="faq__item-answer">
-              <div className="faq__item-answer--expand">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias deserunt et corporis optio harum voluptates, nostrum consectetur quae similique vero cupiditate obcaecati assumenda tempore inventore consequuntur asperiores, laborum soluta voluptas enim, sapiente doloremque error nihil!</p>
-              </div>
-            </div>
+          </div>
         </div>
 
-       </div>
+      </div>
 
 
        <div className="faq__contact">
@@ -50,4 +62,4 @@ const Faqs = () => {
   )
 }
 
-export default Faqs;
+export default FaqItem;

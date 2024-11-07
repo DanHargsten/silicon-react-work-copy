@@ -19,7 +19,7 @@ const NavbarLinks = () => {
 
          <li>
             <a href="#" className="navbar__auth-button btn-small btn-primary">
-               <span className="navbar__auth-icon"><i class='bx bx-user'></i></span>
+               <span className="navbar__auth-icon"><i className='bx bx-user'></i></span>
                <span className="navbar__auth-text">Sign In / Up</span>
             </a>
          </li>

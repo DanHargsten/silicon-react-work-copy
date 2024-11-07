@@ -22,7 +22,7 @@ const FeaturesExtended = () => {
                <li>Manage payments and transactions online</li>
              </ul>
              <a href="#" className="btn-medium btn-primary" aria-label="Learn more about managing payments.">
-                Learn more<span><i class='bx bx-right-arrow-alt'></i></span>
+                Learn more<span><i className='bx bx-right-arrow-alt'></i></span>
              </a>               
           </div>
 
@@ -55,7 +55,7 @@ const FeaturesExtended = () => {
                 </div>
              </div>
              <a href="#" className="btn-medium btn-primary" aria-label="Learn more about receiving international payments.">
-                Learn more<span><i class='bx bx-right-arrow-alt'></i></span>
+                Learn more<span><i className='bx bx-right-arrow-alt'></i></span>
              </a>
           </div>
        </div>
