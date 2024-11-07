@@ -1,3 +1,4 @@
+// Importing image assets for the feature icons
 import costStatistics from '../../assets/images/icons/ft-cost-statistics.svg';
 import dataSecurity from '../../assets/images/icons/ft-data-security.svg';
 import easyPayments from '../../assets/images/icons/ft-easy-payments.svg';
@@ -6,8 +7,10 @@ import standards from '../../assets/images/icons/ft-standards.svg';
 import support from '../../assets/images/icons/ft-support.svg';
 
 
+// ===========================================
 // Exporting array of feature objects
-// Each feature includes icon path, title, and description
+// Each object contains an icon, title, and description for a specific app feature
+// ===========================================
 export const FeaturesData = [
    {
       icon: easyPayments,

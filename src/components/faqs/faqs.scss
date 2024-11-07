@@ -4,90 +4,118 @@
 @use '../../styles/abstracts/font-mixins.scss' as fm;
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
-.faq {
-   padding-top: 3em;
 
-   .faq__heading {
-      grid-area: heading;
-      text-align: center;
-      padding-inline: 1rem;
+// ===========================================
+// FaQ Section - accordion and API
+// ===========================================
 
-      &-title {
-         width: 90%;
-         margin: 0 auto;
-         padding-bottom: 1em;
-         @include fm.text-style(fv.$h4, c.$clr-text-primary, 800);
 
-         @include b.breakpoint(768) {
-            @include fm.text-style(fv.$h2, c.$clr-text-primary, 800);
-         }
+// ---------------------------------------
+// Heading Section
+// ---------------------------------------
+.faq__heading {
+   grid-area: heading;
+   text-align: center;
+   padding-inline: 1rem;
+
+   // ---- Title Styling ----
+   &-title {
+      width: 90%;
+      margin: 0 auto;
+      padding-bottom: 1em;
+      @include fm.text-style(fv.$h4, c.$clr-text-primary, 800);
+
+      @include b.breakpoint(768) {
+         @include fm.text-style(fv.$h2, c.$clr-text-primary, 800);
       }
+   }
 
-      &-text {
-         padding-bottom: 3em;
-         @include fm.text-style(fv.$b-lg, c.$clr-text-secondary);
-         text-wrap: pretty;
+   // ---- Subtext Styling ----
+   &-text {
+      padding-bottom: 3em;
+      @include fm.text-style(fv.$b-lg, c.$clr-text-secondary);
+      text-wrap: pretty;
+   }
+}
+
+   
+// ---------------------------------------
+// Accordion Section
+// ---------------------------------------
+.faq__accordion {
+   grid-area: faq;
+   margin-inline: 0.75rem;
+   padding-inline: 1.5em;
+   border: 1px solid c.$clr-grey-300;
+   border-radius: 1rem;
+   
+   @include b.breakpoint(1400) {
+      display: flex;
+      flex-direction: column;
+   }
+}
+      
+
+// ---------------------------------------
+// Question Section
+// ---------------------------------------
+.faq__item-question {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: 1px solid c.$clr-grey-300;
+   cursor: pointer;
+
+   
+   // ---- Text Styling ----
+   &--text {
+      padding-block: 1em;
+      padding-left: 0.5em;
+      text-wrap: pretty;
+      @include fm.text-style(fv.$h6, c.$clr-text-primary, 600); // Text styling mixin
+   }
+
+   // ---- Button Styling ----
+   .btn-circle {
+      background-color: transparent;
+      border: none;  // Removing default button border
+
+      transition: all 350ms;
+      
+      i {
+         background-color: c.$clr-grey-100;
+        // transition: transform 0.350ms; // Smooth rotation for icon
       }
    }
 
-   .faq__accordion {
-      grid-area: faq;
-      margin-inline: 0.75rem;
-      padding-inline: 1.5em;
-      border: 1px solid c.$clr-grey-300;
-      border-radius: 1rem;
-      
-      @include b.breakpoint(1400) {
-         display: flex;
-         flex-direction: column;
-      }
-      
-
-      // .faq__item {
-      //    // padding-inline: 1.5em;
-
-      // }
-
-      .faq__question {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         border-bottom: 1px solid c.$clr-grey-300;
-
-         
-         &-text {
-            padding-block: 1em;
-            padding-left: 0.5em;
-            text-wrap: pretty;
-            @include fm.text-style(fv.$h6, c.$clr-text-primary, 600);
-         }
-
-         .btn-circle {
-            background-color: transparent;
-            border: none;
-            
-            i {
-               background-color: c.$clr-grey-100;
-               transition: transform 0.4s; //
-            }
-         }
-
-         .active i {
-            transform: rotate(180deg); 
-         }
-      }
-
-      .faq__answer {
-         padding: 1.5rem;     // Kolla
-         display: none;
-         overflow: hidden;   
-         @include fm.text-style(fv.$b-sm, c.$clr-text-secondary);
-      }
-
-      .active .faq__answer {
-         display: block;
-      }
+   .open i {
+      rotate: 180deg; // Rotate icon on open state
+      background-color: c.$clr-primary;
+      color: #fff
    }
+}
+
+
+.faq__item-answer {
+   display: grid;
+   grid-template-rows: 0fr;
+   padding-inline: 1.5rem;
+   overflow: hidden;
+
+   @include fm.text-style(fv.$b-sm, c.$clr-text-secondary);
+
+   transition: grid-tamplate-rows 300ms, padding-bottom 300ms;
+}
+
+.open .faq__item-answer {
+   grid-template-rows: 1fr;
+   padding-bottom: 1.5rem;
+}
+
+.faq__item-answer--expand {
+   min-height: 0px;
+}
+
 
    .faq__contact {
       grid-area: contact;
@@ -118,4 +146,3 @@
       }
    }   
     
-}

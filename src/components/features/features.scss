@@ -3,12 +3,13 @@
 @use '../../styles/abstracts/font-mixins.scss' as fm;
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
-.features {
 
-   // Increase padding on larger screens
-   // @include b.breakpoint(1400) { padding-block: 5rem; }
+// ===========================================
+// Features Section - Main Container
+// ===========================================
+.features {
    
-   // Layout adjustments for large screens
+   // Container for layout adjustments on larger screens
    .container {
       @include b.breakpoint(1400) {
          display: grid;
@@ -18,12 +19,14 @@
    }
 
 
-   // Phone illustration section
+   // ---------------------------------------
+   // Image Section
+   // ---------------------------------------
    .features__image {
       grid-area: phone;
       display: none;
 
-      // Display illustration on larger screens
+      // Display image on larger screens
       @include b.breakpoint(1400) {
          display: block;
          padding-right: 14rem; 
@@ -31,29 +34,32 @@
    }
    
    
-   // Header section containing the title and subtitle
+   // ---------------------------------------
+   // Heading Section
+   // ---------------------------------------
    .features__heading {
       grid-area: heading;
 
-      // Title styling for default and large screens
+      // ---- Title Styling ----
       .features__title {
          @include fm.text-style(fv.$h3, c.$clr-text-primary, 800);
          text-align: center;
 
+         // Adjust title styling for larger screens
          @include b.breakpoint(1400) {
             @include fm.text-style(fv.$h1, c.$clr-text-primary, 800);
             text-align: left;
          }
       }
 
-
-      // Subtitle styling for default and large screens
+      // ---- Subtitle Styling ----
       .features__subtext {
          @include fm.text-style(fv.$b-lg, c.$clr-text-secondary);
          text-align: center;
          padding-block: 1em;
          padding-inline: 0.75em;
 
+         // Adjust subtitle positioning on large screens
          @include b.breakpoint(1400) {
             text-align: left;
             padding-left: 0;
@@ -64,13 +70,16 @@
    }   
     
 
+   // ---------------------------------------
+   // Grid Section
+   // ---------------------------------------
    .features__grid {
       grid-area: feature;
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: auto;
 
-      // Define column layout on larger screens
+      // Adjust layout for medium and large screens
       @include b.breakpoint(768) {
          grid-template-columns: 1fr 1fr;
          gap: 3rem;         
@@ -80,7 +89,7 @@
          gap: 0.5rem;         
       }
       
-      // Individual feature item styling
+      // ---- Individual Feature Item ----
       .feature-item {
          display: grid;
          grid-template-columns: auto 1fr;
@@ -93,6 +102,7 @@
             padding-right: 0.75em;
          }         
 
+         // ---- Feature Icon Styling ----
          .feature-item__img { 
             display: flex;
             justify-content: center;
@@ -104,8 +114,12 @@
          }
       }
 
-      .feature-item-heading { @include fm.text-style(fv.$h5, c.$clr-text-primary, 800); }
+      // ---- Feature Heading ----
+      .feature-item-heading {
+         @include fm.text-style(fv.$h5, c.$clr-text-primary, 800);
+      }
 
+      // ---- Feature Description ----
       .feature-item-subtext {
          @include fm.text-style(fv.$b-md, c.$clr-text-secondary);
          @include b.breakpoint(1400) { text-wrap: pretty; };

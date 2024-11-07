@@ -5,7 +5,6 @@
 
 
 .features-extended {
-   padding: 4em 0;
 
    // Hide the section on screens smaller than 1400px
    @include b.breakpoint(1400, max) { display: none; }
