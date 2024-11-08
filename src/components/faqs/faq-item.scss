@@ -44,21 +44,17 @@
       
       i {
          background-color: c.$clr-grey-100;
-         font-size: 1.75rem;  // Sets chevron size for visibility
+         font-size: 1.75rem;  // Sets chevron size for visibility        
+         transition: all 350ms ease;
       }
-   }
-   
-   // Toggle state styling for open FAQ items
-   // - Rotates the icon and changes colors when the FAQ item is open
-   
-   // !!!! PROBLEM !!!!
-   // .faq__item-answer.open .btn-circle i {
-   .btn-circle.open i {
-      transform: rotate(180deg);
-      background-color: c.$clr-primary;
-      color: #fff;
-      
-      transition: all 350ms ease;
+
+      // - Rotates the icon and changes colors when the FAQ item is open
+      &.open i {
+         transform: rotate(180deg);
+         background-color: c.$clr-primary;
+         color: #fff;
+         
+      }
    }
 }
 
@@ -77,12 +73,8 @@
 
    @include fm.text-style(fv.$b-sm, c.$clr-text-secondary, 400, 1.6);
 
-
-   // !!!! PROBLEM !!!!
-   border: 2px dashed red;  // TEST VISUALISATION
-
    // Adds transition effect for smooth expansion of answer section
-   transition: grid-template-rows 1000ms ease, padding-bottom 1000ms ease;  // 350MS DEFAULT
+   transition: grid-template-rows 350ms ease, padding-bottom 350ms ease;
 
    &--expand {
       min-height: 0px;  // Ensures the expanded state has a minimum height of 0 to avoid spacing issues

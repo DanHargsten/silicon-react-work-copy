@@ -31,12 +31,8 @@
 .faq__accordion {
    grid-area: accordion;
 
-   // ---- Spacing and Border Styling ----
    @include b.breakpoint(768, max) {
-      margin-inline: 0.75rem;
-      padding-inline: 1.5em;
-      border: 1px solid c.$clr-grey-300;
-      border-radius: 1rem;
+      padding-inline: 0.75rem;
    }
    
    // ---- Desktop Adjustments ----
@@ -45,18 +41,50 @@
    }
 }
 
+// ==========================================
+// FAQ Section Item Styling
+// 
+// Defines styling for each individual FAQ section, including spacing, borders,
+// and conditional styling for first and last items to handle rounded corners.
+// ==========================================
 .faq__section {
-   @include b.breakpoint(768, max) { 
-      padding-inline: 0rem; 
-      margin-bottom: 0rem; 
-      border: none; 
-      border-bottom: 1px solid c.$clr-grey-300;
-      box-shadow: none; 
+   @include b.breakpoint(768, max) {
+      // ---- Mobile and Tablet Adjustments ----
+      margin-bottom: 0;
+      box-shadow: none;
+
+
+      // ---- Adjustments for Border Overlap ----
+      // Overlaps borders slightly to avoid double border effect
+      &:not(:first-of-type) {
+      margin-top: -1px;
+      }
+
+      // ---- First Item Styling ----
+      // Removes bottom border-radius for seamless connection with the next item
+      &:first-of-type {
+         border-bottom-left-radius: 0;
+         border-bottom-right-radius: 0;
+      }
+   
+      // ---- Last Item Styling ----
+      // Removes top border-radius for seamless connection with the previous item
+      &:last-of-type {
+         border-top-left-radius: 0;
+         border-top-right-radius: 0;
+      }
+   
+      // ---- Middle Items Styling ----
+      // Removes border-radius for all middle items to create straight edges
+      &:not(:first-of-type):not(:last-of-type) {
+         border-radius: 0; 
+      }
    }
 
+   // ---- General Styling for All FAQ Items ----
    padding-inline: 1.5rem;
    margin-bottom: 0.5rem;
    border: 1px solid c.$clr-grey-300;
    border-radius: 0.5rem;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  // Adds subtle shadow for depth and separation
 }

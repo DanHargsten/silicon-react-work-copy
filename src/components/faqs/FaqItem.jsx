@@ -16,8 +16,6 @@ const FaqItem = ({ question, answer }) => {
 
   // Function that handles click to toggle between open and close
   const toggleOpen = () => setIsOpen(!isOpen);
-  console.log(isOpen);  // DEBUG
-
 
   return (    
       <div className={`faq__item ${isOpen ? 'open' : ''}`}>
@@ -25,7 +23,7 @@ const FaqItem = ({ question, answer }) => {
         {/* Question section */}
         <div className="faq__item-question" onClick={toggleOpen}>
           <p className="faq__item-question--text">{question}</p>
-          <button className="btn-circle">
+          <button className={`btn-circle ${isOpen ? 'open' : ''}`}>
             <i className='bx bx-chevron-down'></i>
           </button>
         </div>
@@ -36,7 +34,7 @@ const FaqItem = ({ question, answer }) => {
             <p>{answer}</p>
             {isOpen && <p>{answer}</p>}
           </div>
-        </div>
+        </div>  
       </div>        
   );
 }
