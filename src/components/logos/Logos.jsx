@@ -1,7 +1,15 @@
-import React from 'react';
-import './logos.scss';  // Styling for the Logos component
+// ==========================
+// Logos Component
+// Displays a responsive grid of brand logos.
+// Hides logos on mobile and adjusts the number of displayed logos 
+// based on screen size.
+// ==========================
 
-// Import logo images
+import React from 'react';
+import './logos.scss'; 
+
+// ========== Imports: Logo Images ==========
+// SVG images for each logo
 import logo1 from '../../assets/images/logos/logoipsum-1.svg';
 import logo2 from '../../assets/images/logos/logoipsum-2.svg';
 import logo3 from '../../assets/images/logos/logoipsum-3.svg';
@@ -11,8 +19,8 @@ import logo6 from '../../assets/images/logos/logoipsum-6.svg';
 
 
 const Logos = () => {
-
-  // Array of logo objects with `src` and `alt` properties
+  // ========== Array: Logo Data ==========
+  // Array holding logo data (src and alt) for rendering each logo image
   const logos = [
     { src: logo1, alt: "Logo for Ipsum Brand 1." },
     { src: logo2, alt: "Logo for Ipsum Brand 2." },
@@ -23,12 +31,14 @@ const Logos = () => {
   ];
 
 
+  // ========== Render: Logos Section ==========
+  // Renders the logos section containing a grid of logos
   return (
     <section className="logos" aria-label="Brand logos.">
       <div className="logos-container">
         {logos.map((logo, index) => (
-          <div className="logos__cards" key="index">  {/*Each logo is wrapped in a div*/}
-            <img src={logo.src} alt={logo.alt} />   {/* Display each logo as an img */}
+          <div className="logos__cards" key="index"> 
+            <img src={logo.src} alt={logo.alt} />   
           </div>
         ))}
       </div>

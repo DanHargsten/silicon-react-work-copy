@@ -8,17 +8,19 @@
 // FAQ Item Component
 // 
 // Styles for individual FAQ items in the accordion list
-// - Question section with toggle button
-// - Answer section with expandable content
+// - Question section with toggle button for expanding answers
+// - Answer section with expandable content that reveals on click
 // ==========================================
+
 
 // ---------------------------------------
 // Question Section
 // - Displays FAQ question text with a toggle button
+// - Clicking this section will reveal or hide the answer
 // ---------------------------------------
 .faq__item-question {
-   display: flex;
-   justify-content: space-between;
+   display: flex;  // Enables flexbox for horizontal alignment of question text and button
+   justify-content: space-between;  // Spaces question text and button to opposite ends
    align-items: center;
    padding-block: 0.6rem;
    cursor: pointer;
@@ -28,7 +30,8 @@
    &--text {
       padding-block: 1em;
       padding-inline: 0.5em;
-      text-wrap: pretty;
+      text-wrap: pretty;  // Ensures that text wraps nicely if it overflows
+
       @include fm.text-style(fv.$h6, c.$clr-text-primary, 600);
 
       @include b.breakpoint(768) { line-height: 1.6; }
@@ -36,16 +39,17 @@
 
    // ---- Button Styling ----
    .btn-circle {
-      background-color: transparent;
+      background-color: transparent;  // Makes the button background transparent
       border: none;
       
       i {
          background-color: c.$clr-grey-100;
-         font-size: 1.75rem;
+         font-size: 1.75rem;  // Sets chevron size for visibility
       }
    }
    
    // Toggle state styling for open FAQ items
+   // - Rotates the icon and changes colors when the FAQ item is open
    .faq__item.open .btn-circle i {
       transform: rotate(180deg);
       background-color: c.$clr-primary;
@@ -58,30 +62,33 @@
 // ---------------------------------------
 // Answer Section
 // - Displays FAQ answer text, hidden by default
-// - Expands when FAQ item is opened
+// - Expands when FAQ item is opened, controlled by grid-template-rows
 // ---------------------------------------
 .faq__item-answer {
    display: grid;
    grid-template-rows: 0fr;
    padding-inline: 0.5rem;
-   overflow: hidden;
+   overflow: hidden;  // Prevents content from overflowing when collapsed
 
    @include fm.text-style(fv.$b-sm, c.$clr-text-secondary, 400, 1.6);
 
-   transition: grid-tamplate-rows 350ms, padding-bottom 350ms;
+   // Adds transition effect for smooth expansion of answer section
+   transition: grid-tamplate-rows 350ms ease-in, padding-bottom 350ms ease-in;
 
    &--expand {
-      min-height: 0px;
+      min-height: 0px;  // Ensures the expanded state has a minimum height of 0 to avoid spacing issues
    }
 }
 
-// Styles for open state of answer section
+// ---- Styles for Open State of Answer Section ----
+// - When the FAQ item is open, adjusts grid row height and padding to display the answer
 .open .faq__item-answer {
    grid-template-rows: 1fr;
    padding-bottom: 0rem;
 }
 
-// Styles for open state of question section
+// ---- Styles for Open State of Question Section ----
+// - Adjusts padding for the question section when FAQ item is open
 .open .faq__item-question {
    padding-bottom: 0rem;
 }

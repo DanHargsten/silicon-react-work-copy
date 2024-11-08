@@ -1,19 +1,44 @@
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/colors.scss' as c;
 
-// ---------------------------------------
-// Accordion Section
-// Styles for the accordion container in the FAQ section
-// ---------------------------------------
+
+// ==========================================
+// FAQ Container
+// 
+// This section sets up the main grid layout for the FAQ component,
+// defining how the sections should be arranged on mobile and desktop views.
+// ==========================================
+.faq .container {   
+   display: grid;
+   grid-template-areas:
+      "heading"
+      "accordion"
+      "contact";
+
+   @include b.breakpoint(1400) {
+      grid-template-columns: 1fr 2fr;  // Two columns, 1 fraction on the left, 2 fractions on the right
+      grid-template-rows: 0.5fr 1fr;  // Two rows, with the first row shorter than the second
+      grid-template-areas: 
+         "heading accordion"
+         "contact accordion";
+   }
+}
+
+// ==========================================
+// Accordion Section 
+// Styles for the accordion container, where FAQ items are displayed.
+// ==========================================
 .faq__accordion {
-   grid-area: faq;
+   grid-area: accordion;
+
+   // ---- Spacing and Border Styling ----
    margin-inline: 0.75rem;
    padding-inline: 1.5em;
    border: 1px solid c.$clr-grey-300;
    border-radius: 1rem;
    
+   // ---- Desktop Adjustments ----
    @include b.breakpoint(1400) {
-      display: flex;
-      flex-direction: column;
+      margin-left: 8.375rem;  // Extra left margin to position the accordion within the grid layout
    }
 }

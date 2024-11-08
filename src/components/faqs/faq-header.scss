@@ -7,8 +7,8 @@
 // FAQ Header Section
 // 
 // Styles for the heading section of the FAQ page
-// - Includes title and subtitle text styling
-// - Responsive adjustments for title size at larger breakpoints
+// - Defines the main title and subtitle styles
+// - Adjusts font size and alignment responsively at larger breakpoints
 // ==========================================
 
 .faq__heading {
@@ -18,22 +18,36 @@
 
    // ---- Title Styling ----
    &-title {
-      width: 90%;
-      margin-inline: auto;
-      padding-bottom: 1em;
-      text-wrap: pretty;
-      @include fm.text-style(fv.$h4, c.$clr-text-primary);
+      width: 90%;  // Sets the width of the title to 90% of the container for alignment
+      margin-inline: auto;  // Centers the title horizontally
+      padding-bottom: 1rem;
+      text-wrap: pretty;  // Ensures that text wraps nicely if it overflows
+      @include fm.text-style(fv.$h4, c.$clr-text-primary, 800);
 
-      @include b.breakpoint(768) {
-         @include fm.text-style(fv.$h2, c.$clr-text-primary);
+      @include b.breakpoint(768) {  // Increase font size at tablet/desktop size
+         font-size: fv.$h2;
+      }
+
+      // ---- Desktop Adjustment ----
+      @include b.breakpoint(1400) { 
+         text-align: left;  // Aligns the title to the left
+         margin-inline: 0;  // Removes horizontal centering margin
+         padding-bottom: 2rem;
       }
    }
 
    // ---- Subtext Styling ----
    &-text {
-      margin-inline: auto;
+      margin-inline: auto;  // Centers the subtitle horizontally
       padding-bottom: 3em;
+      text-wrap: pretty;  // Ensures that text wraps well
       @include fm.text-style(fv.$b-lg, c.$clr-text-secondary, 400, 1.6);
-      text-wrap: pretty;
+
+      // ---- Desktop Adjustment ----
+      @include b.breakpoint(1400) {  
+         text-align: left;  // Aligns the subtitle text to the left
+         margin-inline: 0;  
+         padding-bottom: 0rem;  // Removes bottom padding for a tighter layout
+      }
    }
 }

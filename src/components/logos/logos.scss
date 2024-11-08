@@ -1,62 +1,82 @@
+// ==========================
+// Logos Section Styling
+// Styles for the logos section, using grid layout for responsive display
+// and dynamic adjustments based on screen size.
+// ==========================
+
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/colors.scss' as c;
 
+
+// ==========================
+// Main Logos Container
+// ==========================
 .logos {
-   display: none; // Hide all logos on mobile
-
-   // Show logos section starting from tablet screen size (768px and up)
-   @include b.breakpoint(768) { display: block; };
+   display: none;  // Hide all logos on mobile
+   @include b.breakpoint(768) { display: block; };  // Display from tablet size (768px) and up
 
 
+    // ---------- Logos Grid Container ----------
    .logos-container {
       display: grid;
+      grid-template-columns: repeat(4, 1fr);  // Default 4 columns
 
-      // Set grid columns based on screen size
-      grid-template-columns: repeat(4, 1fr);
+      // ---- Adjust grid columns for larger screens ----
       @include b.breakpoint(1200) { grid-template-columns: repeat(5, 1fr); };
       @include b.breakpoint(1400) { grid-template-columns: repeat(6, 1fr); };
    };
 
 
+   // ==========================
+   // Logos Cards Styling
+   // ==========================
    .logos__cards {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 10.625rem;
+      width: 10.625rem;  // Base width for logos
       height: 100px;
-      max-width: 100%;  // Ensure the card width doesn't exceed container
+      max-width: 100%; 
       margin-inline: auto;
       border-radius: 0.5rem;
       border: 1px solid c.$clr-grey-300;
 
-      // Making the cards a smaller to give some space on smaller screen sizes
+      // ---- Adjust width on smaller tablets ----
       @media (min-width: 768px) and (max-width: 991px) {
          width: 9.75rem;
       }
 
+      // ---- Dark mode adjustments ----
       body.dark-mode & {
          border: 1px solid rgba(#ffffff, $alpha: 0.15);
       };
    };
 
 
-   // Show only the first 4 logo cards, hide the last 2
+   // ==========================
+   // Visibility Adjustments
+   // ==========================   
+   // Show only the first 4 logos on smaller screens
    @include b.breakpoint(768) {
       .logos__cards:nth-last-of-type(-n+2) {display: none; } ;
    };
 
-   // Show the first 5 logo cards. Not the most gracious solution perhaps :D
+   // Show first 5 logos on larger screens
    @include b.breakpoint(1200) {
       .logos__cards:nth-last-of-type(-n+2) { display: flex; };
       .logos__cards:nth-last-of-type(-n+1) { display: none; };
    };
 
-   // Show all logo cards
+   // Show all logos on extra large screens
    @include b.breakpoint(1400) {
       .logos__cards:nth-last-of-type(-n+1) { display: flex; };
    };
 
 
+   // ==========================
+   // Logo Image Styling
+   // Ensure images fit within their container
+   // ==========================
    img {
       max-width: 85%;
       aspect-ratio: 1;

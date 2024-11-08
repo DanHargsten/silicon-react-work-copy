@@ -11,25 +11,32 @@
 // - Mobile: Displays a single "Contact us now" button centered.
 // - Tablet: Shows two contact boxes with icons, each providing a different contact option.
 // ==========================================
+
 .faq__contact {
    grid-area: contact;
-   display: flex;
+   display: flex;  // Enables flexbox layout for aligning content
    justify-content: center;
    align-items: center;
    padding-top: 3rem;
 
-   // ---- Mobile button styling, hidden on larger screens ----
-   &-mobile {
-      @include b.breakpoint(765) { display: none; }
+   // ---- Desktop Adjustments ----
+   @include b.breakpoint(1400) {
+      padding-top: 2.5rem;
+      align-items: flex-start;  // Aligns content to the top
    }
 
-   // ---- Tablet/Desktop box container, hidden on smaller screens ----
+   // ---- Mobile button styling ----
+   &-mobile {
+      @include b.breakpoint(768) { display: none; }
+   }
+
+   // ---- Tablet/Desktop Box Container ----
    &-tablet {
-      @include b.breakpoint(765, max) { display: none; }
-      display: flex;
+      @include b.breakpoint(768, max) { display: none; }
+      display: flex;  // Enables flexbox layout for arranging the boxes
       gap: 2rem;
-      justify-content: space-between;
-      width: 100%;
+      justify-content: space-between;  // Distributes boxes evenly across the width
+      width: 100%;  // Sets container width to full available space
    }
 
    
@@ -38,23 +45,23 @@
    // Styles for each contact box displayed in tablet/desktop views
    // ---------------------------------------
    .contact__box {
-      display: flex;
-      flex: 1;
+      display: flex;  // Enables flexbox for vertical alignment
+      flex: 1;  // Allows each box to grow and fill the container equally
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: flex-start;  // Aligns content to the left horizontally
       gap: 1.25rem;
       padding-block: 1.75rem;
       padding-left: 1.5rem;
       border: 1px solid c.$clr-grey-300;
       border-radius: 0.5rem;
 
-      // ---- Text styling for the descriptive text inside the box ----
+      // ---- Text Styling for Descriptive Text inside the box ----
       &-text {
          @include fm.text-style(fv.$b-sm, c.$clr-text-secondary, 400, 1.6);
       }
 
-      // ---- Link styling. Modifier classes for link colors: primary and success ----
+      // ---- Link Styling with Modifier Classes for Colors ----
       &-link {
          @include fm.text-style(fv.$b-sm, c.$clr-primary, 600, 1.6);
 
