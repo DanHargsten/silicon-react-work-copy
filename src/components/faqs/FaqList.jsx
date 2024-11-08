@@ -37,7 +37,6 @@ const FaqList = () => {
       fetchFaqData();
    }, []);   
 
-
    return (
       <section className="faq">
          <div className="container">
@@ -47,7 +46,10 @@ const FaqList = () => {
             {/* FAQ Accordion List */}
             <div className="faq__accordion">
                {faqs.map((faq) => (
-               <FaqItem key={faq.id} question={faq.title} answer={faq.content} />
+                  // Wrap each FaqItem in its own section for styling
+                  <section key={faq.id} className="faq__section">
+                     <FaqItem question={faq.title} answer={faq.content} />
+                  </section>
                ))}
             </div>
             

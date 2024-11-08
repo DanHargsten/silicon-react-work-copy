@@ -16,7 +16,7 @@ const FaqItem = ({ question, answer }) => {
 
   // Function that handles click to toggle between open and close
   const toggleOpen = () => setIsOpen(!isOpen);
-  console.log(isOpen);
+  console.log(isOpen);  // DEBUG
 
 
   return (    
@@ -30,14 +30,15 @@ const FaqItem = ({ question, answer }) => {
           </button>
         </div>
 
-        {/* Answer section */}
+        {/* Answer section */}        
         <div className="faq__item-answer">
           <div className="faq__item-answer--expand">
+            <p>{answer}</p>
             {isOpen && <p>{answer}</p>}
           </div>
         </div>
       </div>        
-  )
+  );
 }
 
 export default FaqItem;

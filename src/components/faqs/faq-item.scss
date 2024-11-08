@@ -50,10 +50,15 @@
    
    // Toggle state styling for open FAQ items
    // - Rotates the icon and changes colors when the FAQ item is open
-   .faq__item.open .btn-circle i {
+   
+   // !!!! PROBLEM !!!!
+   // .faq__item-answer.open .btn-circle i {
+   .btn-circle.open i {
       transform: rotate(180deg);
       background-color: c.$clr-primary;
-      color: #fff
+      color: #fff;
+      
+      transition: all 350ms ease;
    }
 }
 
@@ -72,8 +77,12 @@
 
    @include fm.text-style(fv.$b-sm, c.$clr-text-secondary, 400, 1.6);
 
+
+   // !!!! PROBLEM !!!!
+   border: 2px dashed red;  // TEST VISUALISATION
+
    // Adds transition effect for smooth expansion of answer section
-   transition: grid-tamplate-rows 350ms ease-in, padding-bottom 350ms ease-in;
+   transition: grid-template-rows 1000ms ease, padding-bottom 1000ms ease;  // 350MS DEFAULT
 
    &--expand {
       min-height: 0px;  // Ensures the expanded state has a minimum height of 0 to avoid spacing issues
@@ -85,6 +94,7 @@
 .open .faq__item-answer {
    grid-template-rows: 1fr;
    padding-bottom: 0rem;
+   margin-block: 1rem;
 }
 
 // ---- Styles for Open State of Question Section ----
