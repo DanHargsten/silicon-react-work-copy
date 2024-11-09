@@ -13,3 +13,17 @@
 .space-y-5>*+* {
    margin-top: 5rem;
  }
+
+ // Debug
+ .border-error-1 {
+  border: 2px dashed red;
+ }
+ .border-error-2 {
+  border: 2px dashed cyan;
+ }
+ .border-error-3 {
+  border: 2px dashed darkolivegreen;
+ }
+ .border-error-4 {
+  border: 2px dashed darkorange;
+ }

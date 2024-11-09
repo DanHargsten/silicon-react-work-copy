@@ -55,7 +55,7 @@
 
 
       // ---- Adjustments for Border Overlap ----
-      // Overlaps borders slightly to avoid double border effect
+      // Overlaps borders to avoid double border effect
       &:not(:first-of-type) {
       margin-top: -1px;
       }

@@ -5,7 +5,11 @@
 @use '../../styles/abstracts/font-variables' as fv;
 
 
-// Helper class to hide elements visually but keep them accessible to screen readers
+// ==========================================
+// Helper Class
+// 
+// Visually hides elements but keeps them accessible to screen readers.
+// ==========================================
 .sr-only {
    position: absolute;
    width: 1px;
@@ -18,8 +22,18 @@
 }
 
 
+// ==========================================
+// Subscribe Section
+// 
+// Layout and styling for the subscribe section, including the
+// container, header, form, and input/button elements.
+// ==========================================
 .subscribe {
 
+   // ----------------------------------------
+   // Container
+   // Centers content and applies responsive grid on larger screens.
+   // ----------------------------------------
    .container {
       display: flex;
       flex-direction: column;
@@ -29,65 +43,76 @@
       background-color: c.$clr-background-secondary;
       text-align: center;
 
-      // Grid layout for tablet sizes and up
       @include b.breakpoint(768) {
-         display: grid;
+         display: grid;  // Switches to grid layout
          grid-template-columns: 1fr 1fr;
          align-items: center;
          text-align: left;
          padding-inline: 1.5rem;
       }
 
-      // Increase side padding for large desktop screens
       @include b.breakpoint(1400) {
-         padding-inline: 6.875em;
+         padding-inline: 6.875em;  // Increases padding on larger screens
       }
    }
 
-   // Header section: bell icon and title
+
+   // ----------------------------------------
+   // Header Section (Bell Icon and Title)
+   // Displays a bell icon and a title, with responsive font and text.
+   // ----------------------------------------
    .subscribe__header {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       gap: 1rem;
 
-      @include b.breakpoint(768, max) { margin-bottom: 1rem; };  // Adds spacing below header on smaller screens
-      @include b.breakpoint(1200) { padding-block: 2rem; }  // Add padding on larger screen to incrase 
+      @include b.breakpoint(768, max) {
+         margin-bottom: 1rem;  // Adds bottom margin on smaller screens
+      } 
+
+      @include b.breakpoint(1200) {
+         padding-block: 2rem;  // Adds vertical padding on larger screens
+      }
 
       .subscribe__bell-icon {
          margin-bottom: 1rem; // Keeps even padding around the bell icon
       }
 
       .subscribe__title {
-         max-width: 15ch; // Ensures title breaks into multiple lines on smaller screens
+         max-width: 15ch; // Ensures title wraps on smaller screens
 
-         // Apply font styling to the title
+         // ---- Font styling for the title ----
          @include fm.text-style(fv.$h5, c.$clr-text-primary, 800, 1.4);
          text-align: left;
 
-         // Adjust title font size and add more text on larger screens
          @include b.breakpoint(1200) {
-            max-width: none;
+            max-width: none;  // Removes width restriction on larger screens
             @include fm.text-style(fv.$h4, c.$clr-text-primary, 800, 1.4);
 
             &:after {
-               content: " to stay informed about latest updates";  // Appends additional text on larger screens
+               content: " to stay informed about latest updates";  // Appends text on larger screens
             }
          }
       }
    }
 
-   // Form section: email input and subscribe button
+  
+   // ----------------------------------------
+   // Form Section (Email Input and Subscribe Button)
+   // Layout for the form elements including input field and button.
+   // ----------------------------------------
    .subscribe__form {
+      position: relative;  // Needed for absolute positioning within form
       display: flex;      
       justify-content: flex-end;
       align-items: center;
-      width: calc(100% - 3rem);  // Full width minus padding on mobile
+      flex-direction: column;
+      width: calc(100% - 3rem);  // Width minus padding for mobile
 
       @include b.breakpoint(768) {
-           width: 100%;  // Use full width on larger screens
-        }
-
+         width: 100%;
+      }
 
       .subscribe__input-wrapper {
          position: relative;
@@ -95,10 +120,24 @@
          display: flex;
          justify-content: flex-end;
 
-         @include b.breakpoint(1200) { width: 90%; }  // Slightly reduce width on large screens for better layout balance
+         @include b.breakpoint(1200) {
+            width: 90%;  // Slightly reduce width on large screens for better layout balance
+         } 
 
+ 
+         // ---- Error Message Styling ----
+         .subscribe__error {
+            position: absolute;
+            top: 100%;
+            left: 0.5rem;
+            color: c.$clr-error;
+            font-size: 0.9rem;
+         }
+
+
+         // ---- Email Input Field Styling ----
          .subscribe__input {
-            width: 100%;  // Full width to occupy available space
+            width: 100%;
             padding-left: 2rem; // Space for envelope icon
             border: 1px solid c.$clr-grey-400;
             border-radius: 0.5rem 0 0 0.5rem;
@@ -115,6 +154,7 @@
             }
          }
 
+         // ---- Envelope Icon Styling ----
          .subscribe__input-icon {
             position: absolute;
             top: 50%;
@@ -123,8 +163,9 @@
             color: c.$clr-grey-500;
          }
 
+         
+         // ---- Subscribe Button Styling ----
          .btn-medium {
-            // Set initial padding to create a more compact button for smaller screens
             padding: 0.9em 1.25em;
             border-radius: 0 0.5rem 0.5rem 0;
 
