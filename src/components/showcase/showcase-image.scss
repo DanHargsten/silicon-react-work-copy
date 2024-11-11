@@ -1,21 +1,16 @@
 @use '../../styles/abstracts/breakpoints' as b;
 
 .showcase__image {
-border: 1px solid black;
-      //
-      width: 100%;
-      //
    grid-area: image;
    position: absolute;
    bottom: 0;
    right: 0;
-   // margin-right: 2.1875rem;
+   margin-right: 2.1875rem;
    margin-top: 2rem;
    display: none;
 
    @include b.breakpoint(768) {
       display: block;         
-
    }
 
    @include b.breakpoint(1400) {

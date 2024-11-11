@@ -4,12 +4,9 @@ import './showcase-image.scss'
 
 import phoneShowcase from '../../assets/images/illustrations/phone-showcase.svg';
 
-
-//============ Showcase Image Component ============
-/*
- * Displays the main image within the showcase section showing the app's features.
+/**
+ * Component for displaying the main image in the showcase section.
  */
-
 const ShowcaseImage = () => (
   <div className="showcase__image">
     <img src={phoneShowcase} alt="Two phones showing off Silicon app features with a graph and cards" />
