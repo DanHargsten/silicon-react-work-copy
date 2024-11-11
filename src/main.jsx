@@ -21,7 +21,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <>
       <div className="wrapper space-y-5">
-        <Header />
+        {/* <Header /> */}
         <Showcase />
         <Logos />
         <Features />

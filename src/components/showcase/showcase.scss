@@ -1,12 +1,23 @@
+// ======================================================
+// Showcase Section
+// 
+// Styles for the main showcase component
+// - Sets up padding and background
+// - Contains responsive grid layout for the container
+// - Adjusts grid structure for mobile, tablet, and desktop
+// ======================================================
+
 @use '../../styles/abstracts/breakpoints' as b;
 @use '../../styles/abstracts/colors' as c;
 @use '../../styles/abstracts/font-mixins' as fm;
 @use '../../styles/abstracts/font-variables' as fv;
 
+
 .showcase {
    padding-top: 2rem;
    background-image: c.$clr-bg-gradient;
  
+   //------------ Container Grid Layout ------------
    .container {
       position: relative;
       display: grid;
@@ -19,13 +30,16 @@
       justify-items: center;
       align-items: center;
  
-     @include b.breakpoint(768) {
+      // ---- Tablet layout adjustments (768px) ----
+      @include b.breakpoint(768) {
          grid-template-columns: 1fr 1fr;
-         grid-template-rows: auto auto;
+         grid-template-rows: 1fr 1fr;
          grid-template-areas:
             "headline headline"
             "content image";
      }
+     
+     // ---- Desktop layout adjustments (1400px) ----
      @include b.breakpoint(1400) {
          grid-template-columns: 1fr 1fr;
          grid-template-rows: auto auto;

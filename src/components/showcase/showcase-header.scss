@@ -4,16 +4,18 @@
 @use '../../styles/abstracts/font-variables' as fv;
 
 .showcase__headline {      
+border: 2px dashed #333;
+
    grid-area: headline;
    text-align: center;
    margin-inline: auto;
    line-height: 1.2;
    font-size: 2,125rem;
-   width: 100%;
+   width: 90%;
    @include fm.text-style(fv.$d6, c.$clr-text-primary, 800);
 
    @include b.breakpoint(768) {
-      @include fm.text-style(fv.$d5, c.$clr-text-primary, 800);         
+      @include fm.text-style(fv.$d6, c.$clr-text-primary, 800);         
    }
    @include b.breakpoint(1400) {          
       text-align: left;
