@@ -28,8 +28,8 @@ createRoot(document.getElementById('root')).render(
         {/* <Logos /> */}
         {/* <Features /> */}
         {/* <Slider /> */}
-        {/* <FeaturesExtended /> */}
-        <Testimonials />
+        <FeaturesExtended />
+        {/* <Testimonials /> */}
         {/* <FaqList /> */}
         {/* <Subscribe /> */}
         {/* <Footer year={2024} credit={"MadrasThemes"} /> */}

@@ -1,18 +1,24 @@
+// ==========================================
+// Testimonials Section
+// 
+// Handles the layout and styling for the testimonials section of the website.
+// ==========================================
+
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/colors.scss' as c;
 @use '../../styles/abstracts/font-mixins.scss' as fm;
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
+
+// Setting background color and padding for clear section separation
 .testimonials {
    padding-block: 5em;
    background-color: c.$clr-background-secondary;
 
-   .wrapper {
-      width: 100%;
-   }
-
    // Hide the section on screens smaller than 1400px
-   @include b.breakpoint(1400, max) { display: none; }
+   @include b.breakpoint(1400, max) {
+      display: none;
+   }
    
    .container {
       display: grid;
@@ -20,10 +26,14 @@
       gap: 1.5rem;
    }
 
-   // Main heading for testimonials
-   &__heading { @include fm.text-style(fv.$h1, c.$clr-text-primary, 800); }
+   // ---- Main heading styling for testimonials section ----
+   &__heading { 
+      width: 80%;  // Forcing a linebreak for a more pleasing layout
+      @include fm.text-style(fv.$h1, c.$clr-text-primary, 800);
+   }
 
-   // Styling for each card
+   
+   // ---- Testimonials Card ----
    &__card {
       position: relative;
       display: flex;
@@ -36,22 +46,35 @@
       gap: 1.5rem;
       box-shadow: 0 0 4px #00000015; // Subtle shadow for depth
 
-   // Quote icon inside each card
+      // outline-color: c.$clr-primary; 
+
+      // ---- Quote Icon for each card ----
+      // Positions icon slightly above the card
       .testimonials__quote {
          position: absolute;
-         top: -6%;
+         top: -6%; 
          left: 1rem;
          height: 3.8rem;
       }
+      
+
+      // ---- Star Rating Display ----
       .testimonials__rating {
+         display: flex;
          width: 88px;
          height: 16px;
       }
       
       
-      .testimonials__text { @include fm.text-style(fv.$b-lg, c.$clr-text-secondary); }
+      // ---- Testimonial Text Styling ----
+      .testimonials__text {
+         @include fm.text-style(fv.$b-lg, c.$clr-text-secondary, 400, 1.6);
+      }
       
-      // User info section
+      // ---------------------------------------
+      // User Info Section
+      // Styles the section with user avatar, name, and job role
+      // ---------------------------------------
       .testimonials__user-info {
          display: flex;
          gap: 0.7rem;  // Space between user photo and text
@@ -60,8 +83,15 @@
             display: flex;
             flex-direction: column;
             
-            .testimonials__user-name { @include fm.text-style(fv.$b-lg, c.$clr-text-secondary); }
-            .testimonials__user-role { @include fm.text-style(fv.$b-sm, c.$clr-text-accent); }
+            // ---- User Name Styling ----
+            .testimonials__user-name {
+               @include fm.text-style(fv.$b-lg, c.$clr-text-secondary, 700, 1.6);
+            }
+
+            // ---- User Role Styling ----
+            .testimonials__user-role {
+               @include fm.text-style(fv.$b-sm, c.$clr-text-accent, 400, 1.6);
+            }
          }
       }
    }

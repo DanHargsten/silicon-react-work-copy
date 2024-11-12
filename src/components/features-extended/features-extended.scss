@@ -1,3 +1,13 @@
+// ==========================================
+// Features Extended Section
+// 
+// Defines the layout and styling for the extended features section on the website.
+// - Desktop-Only: The section is hidden on screens smaller than 1400px for optimal display.
+// - Container: Holds the main flex layout, aligning two feature blocks vertically.
+// - Feature Blocks: Each feature block contains a title, list or icons, description, and button.
+// - Responsive Layout: Grid layout in each feature block to position text and images side by side.
+// ==========================================
+
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/colors.scss' as c;
 @use '../../styles/abstracts/font-mixins.scss' as fm;
@@ -7,44 +17,57 @@
 .features-extended {
 
    // Hide the section on screens smaller than 1400px
-   @include b.breakpoint(1400, max) { display: none; }
+   @include b.breakpoint(1400, max) {
+      display: none;
+   }
 
-   // Give both sections a flex
+   // Container for flex layout of both feature sections
    .container {     
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 5.5rem;
+      gap: 5.5rem; // Space between blocks
    }
 
 
-   // Style each section 
+   // ==========================
+   // Feature Block Container
+   // Styles layout and spacing for each feature section, with grid alignment
+   // ========================== 
    .features-extended__container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: 2.5rem;
 
+      // ==========================
+      // Feature Info Section
+      // Styles title, list, and buttons within each feature block
+      // ==========================
       .features-extended__info {    
          
+          // ---- Title Styling ----
          .features-extended__title {
             @include fm.text-style(fv.$h2, c.$clr-text-primary, 800);
-            line-height: 1.3;
          }
    
-         // Styles for the list of features
+         // -------------------------------
+         // Feature List Styles
+         // Defines the layout for the list of key feature benefits
+         // -------------------------------
          .features-extended__list { 
             margin-top: 1.5rem;
             margin-bottom: 2.5rem;
 
-            // Align the checkmark icon and text
+            // ---- List Item Styling ----
             li {
                display: flex;
                align-items: center;
                list-style: none;
                margin-bottom: 0.4rem;
-               @include fm.text-style(fv.$b-md, c.$clr-text-secondary);
+               @include fm.text-style(fv.$b-md, c.$clr-text-secondary, 400, 1.6);
                
+               // Adding checkmark icon before each list item
                &::before {
                   content: url('../../assets/images/icons/check-circle.svg'); 
                   margin-right: 0.5rem;
@@ -53,6 +76,10 @@
             }             
          }
 
+         // -------------------------------
+         // Button Styling
+         // Sets button size, alignment, and spacing inside info section
+         // -------------------------------         
          a.btn-medium {
             display: inline-flex;
             align-items: center;
@@ -65,14 +92,19 @@
             font-weight: 600;
          }
 
-         // Slightly adjusting arrow inside button
+         // Minor margin adjustment for the arrow icon in button
          span { margin-top: 0.1rem; }
       }               
          
+      // ==========================
+      // Icon Features Section
+      // Styles each icon block within the feature info for feature highlights
+      // ==========================
       .features-extended__icons {
          display: flex;
          gap: 2.5rem;
 
+         // ---- Individual Icon Block ----
          .icon-block {
             display: flex;
             flex-direction: column;
@@ -80,7 +112,7 @@
             width: 15rem;
             padding-block: 2.5em;
 
-            // Creating icon background
+            // Background styling for icon with centered alignment
             .icon-block-image {
                width: 3.75rem;
                height: 3.75rem;
@@ -93,8 +125,12 @@
          }      
       }
 
+      // -------------------------------
+      // Feature Description Styling
+      // Styles text for each icon's description, inside icon blocks
+      // -------------------------------
       .features-extended__description {
-         @include fm.text-style(fv.$b-md, c.$clr-text-secondary);
+         @include fm.text-style(fv.$b-md, c.$clr-text-secondary, 400, 1.6);
       }      
    }
 }
