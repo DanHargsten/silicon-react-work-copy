@@ -58,23 +58,23 @@
    
 
 
-   @include b.breakpoint(1200, max) {
-      position: absolute;
-      display: flex;
-      top: 100%;
-      right: 0;
-      flex-direction: column-reverse;
-      justify-content: center;
-      gap: 1rem;
-      padding-block: 2rem;
-      background-color: c.$clr-bg;
-      box-shadow: 0 5px 5px -5px #00000020;
+   // @include b.breakpoint(1200, max) {
+   //    position: absolute;
+   //    display: flex;
+   //    top: 100%;
+   //    right: 0;
+   //    flex-direction: column-reverse;
+   //    justify-content: center;
+   //    gap: 1rem;
+   //    padding-block: 2rem;
+   //    background-color: c.$clr-bg;
+   //    box-shadow: 0 5px 5px -5px #00000020;
 
-      .navbar__link--action {
-         position: relative;
-         right: 0;
-      }
-   }
+   //    .navbar__link--action {
+   //       position: relative;
+   //       right: 0;
+   //    }
+   // }
 
    .navbar-container {
       display: flex;

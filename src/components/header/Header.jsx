@@ -11,9 +11,9 @@ import './header.scss';
 
 const Header = () => {
   // Tracks whether the menu is open or closed
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   // Toggle the menu open/close state
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  // const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
 
   // Tracks if dark mode is active or not

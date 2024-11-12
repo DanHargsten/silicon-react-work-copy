@@ -1,0 +1,30 @@
+@use '../../styles/abstracts/colors.scss' as c;
+@use '../../styles/abstracts/font-variables' as fv;
+
+
+
+
+// Hero Section Styles
+// Main hero section with background and fixed height
+.hero {
+   // height: 43.75rem;
+   //margin-bottom: 11rem; // Add space for the block below
+
+   padding-bottom: 10rem;
+   background-color: c.$clr-background-secondary;
+}
+
+
+// Main Container Styles
+// Wrapper that holds both the contact and consultation sections
+.container {
+   display: flex;
+   flex-direction: column;
+   gap: 4rem;
+   // height: 43.75rem;
+   
+   // display: flex;
+   // justify-content: space-between;
+
+   // height: 43.75rem;
+}

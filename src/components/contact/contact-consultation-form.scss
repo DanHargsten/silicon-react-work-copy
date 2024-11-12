@@ -1,0 +1,117 @@
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/colors.scss' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+
+
+
+// Consultation form section
+.consultation {
+   width: 94%;  // Adding some space between the card and edge
+   margin-inline: auto;
+   padding-block: 2.5rem;
+   // padding-block: 2rem;
+   
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   margin-top: 1rem;
+   // top: 1rem;
+
+   //PC
+   //width: 40rem;
+   //height: 45rem;
+   //padding: 4.5rem;
+   //top: 5rem; // Offsetting from the top to create visual separation
+
+   // justify-content: space-between;??
+
+   background-color: c.$clr-background-primary;
+   border-radius: 0.5rem;
+   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+
+   .consultation__header {
+      text-align: center;
+      @include fm.text-style(fv.$h4, c.$clr-text-primary, 800);
+
+      @include b.breakpoint(768) {
+         @include fm.text-style(fv.$h2, c.$clr-text-primary, 800);
+      }
+   }
+
+   
+   .consultation__form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-block: 3rem;  // Some spacing for the form
+      margin-inline: 1.5rem; // 
+      
+      // margin-top: -7rem;
+   }
+   
+   .consultation__label {
+      @include fm.text-style(fv.$h6, c.$clr-text-primary, 600, 1.6);
+   }
+
+
+   // Styles for form input fields (text, email, dropdown)
+   .consultation__input {
+      width: 100%;   
+      padding: 0.9rem;
+
+      border: 1px solid c.$clr-grey-400;
+      border-radius: 0.5rem;
+
+      font-size: 1rem;
+
+
+      &:hover,
+      &:focus-visible {
+         outline: 2px solid c.$clr-primary;
+      }
+   }
+
+
+   // Removing default arrow and style a custom one for better looks
+   .consultation__select select {
+      appearance: none;
+      background: url('/down-arrow.png') no-repeat right 1rem center;
+      background-size: 1rem;
+      background-color: #fff;
+   }
+
+   // Make placeholder text a different color, making it clearer that it can't be picked as an option
+   .consultation__select select option[value="default"] {
+      color: c.$clr-grey-600;
+   }
+
+
+   // Submit button for the form
+   .consultation__button {
+      padding: 0.9rem;
+      width: 90%;  //
+      margin-inline: auto; //
+
+      background-color: c.$clr-primary;
+      border-radius: 0.5rem;
+      border-color: transparent;
+      box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.2);
+      outline: none;
+
+      @include fm.text-style(fv.$nav, #fff, 600, 1.6);
+
+      transition: background-color 250ms ease;
+
+      // Change color on hover and focus
+      &:hover,
+      &:focus-visible {
+         background-color: darken(c.$clr-primary, 10%);
+      }
+   }
+}
+
+body.dark-mode .consultation {
+   box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.15);
+}

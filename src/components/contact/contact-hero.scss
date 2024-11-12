@@ -1,0 +1,122 @@
+// ===================
+// Hero Container Styling
+// ===================
+
+
+@use '../../styles/abstracts/breakpoints.scss' as b;
+@use '../../styles/abstracts/colors.scss' as c;
+@use '../../styles/abstracts/font-mixins.scss' as fm;
+@use '../../styles/abstracts/font-variables.scss' as fv;
+
+
+
+.hero__container {
+   display: flex;
+   flex-direction: column;
+   gap: 3rem;
+   padding-block: 4rem;
+
+   @include b.breakpoint(768) {
+      gap: 5rem;
+      padding: 4rem;
+   }
+
+   // ---- Hero Title ----
+   // Styles the main title in the hero section
+   .hero__title {
+      @include b.breakpoint(768, max) { text-align: center; }
+      @include fm.text-style(fv.$h1, c.$clr-text-primary, 800);
+   }
+
+
+   // ===================
+   // Method Box
+   // ---------------------
+   // Styles each method box within the hero section, which
+   // includes an icon, title, description, and link.
+   // ===================
+   .hero__method {
+      position: relative;  
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      width: 24.375rem;
+      padding-left: 2rem;
+
+     
+      // ---- Hero Icon ----
+      // Styles the circular icon positioned outside the box
+      .hero__icon {
+         position: absolute;
+         
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-shrink: 0; // Prevent shrinking when space is constrained
+         top: 0;
+         left: 2rem;
+         background-color: c.$clr-btn-round;
+         color: c.$clr-btn-text-circle;
+         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+         width: 2rem;
+         aspect-ratio: 1;
+         border-radius: 50%;
+
+         font-size: 1rem;
+         img {
+            height: 1.25rem;
+            aspect-ratio: 1;
+         }
+
+         @include b.breakpoint (768) {
+            left: -3.5rem;  // Positions icon to the left of the method box
+            flex-shrink: 0; // Prevent shrinking when space is constrained
+            width: 3.75rem;   
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); // Subtle shadow for depth
+         }
+      }
+
+      // ---- Method Title ----
+      // Styles the title text inside each method box
+      .hero__method-title {
+         padding-left: 2.75rem;
+         @include fm.text-style(fv.$h4, c.$clr-text-primary, 800, 1.4);
+
+         @include b.breakpoint(768) {
+            padding-left: 0;
+         }
+         
+
+         
+      }
+
+      // ---- Method Description ----
+      // Styles the descriptive text in each method box
+      .hero__description {
+         @include fm.text-style(fv.$h6, c.$clr-text-secondary, 400, 1.6);
+         padding-block: 0.75rem;
+      }
+
+
+      // ---- Link Styling ----
+      // Styles the link in each method box, including hover effects
+      .hero__link {
+         @include fm.text-style(fv.$nav, c.$clr-primary, 600, 1.6);
+
+         transition: color 250ms ease, font-weight 250ms ease;
+
+         span {
+            padding-left: 0.5rem; // Spacing between link text and icon
+            vertical-align: -0.15rem;  // Align icon with text
+         }
+
+         // Darkens color and increases font weight on hover and focus
+         &:hover,
+         &:focus-visible {
+            color: darken(c.$clr-primary, 10%);
+            font-weight: 800;
+         }
+      }
+   }
+}

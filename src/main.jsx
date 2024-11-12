@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 
+import Contact from './components/contact/Contact';
 import FaqList from './components/faqs/FaqList';
 import Features from './components/features/Features';
 import FeaturesExtended from './components/features-extended/FeaturesExtended';
@@ -21,16 +22,17 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <>
       <div className="wrapper space-y-5">
-        <Header />
-        <Showcase />
-        <Logos />
-        <Features />
-        <Slider />
-        <FeaturesExtended />
+        {/* <Contact /> */}
+        {/* <Header /> */}
+        {/* <Showcase /> */}
+        {/* <Logos /> */}
+        {/* <Features /> */}
+        {/* <Slider /> */}
+        {/* <FeaturesExtended /> */}
         <Testimonials />
-        <FaqList />
-        <Subscribe />
-        <Footer year={2024} credit={"MadrasThemes"} />
+        {/* <FaqList /> */}
+        {/* <Subscribe /> */}
+        {/* <Footer year={2024} credit={"MadrasThemes"} /> */}
       </div>
     </>
   </StrictMode>,

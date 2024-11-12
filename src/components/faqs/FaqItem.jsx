@@ -31,7 +31,7 @@ const FaqItem = ({ question, answer }) => {
         {/* Answer section */}        
         <div className="faq__item-answer">
           <div className="faq__item-answer--expand">
-            <p>{answer}</p>
+
             {isOpen && <p>{answer}</p>}
           </div>
         </div>  
