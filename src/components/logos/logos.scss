@@ -18,6 +18,10 @@
 
     // ---------- Logos Grid Container ----------
    .logos-container {
+      width: 100%; 
+      margin: 0;
+      padding: 0;
+      
       display: grid;
       grid-template-columns: repeat(4, 1fr);  // Default 4 columns
 
@@ -62,6 +66,7 @@
    };
 
    // Show first 5 logos on larger screens
+   // Not the most elegant solution perhaps...
    @include b.breakpoint(1200) {
       .logos__cards:nth-last-of-type(-n+2) { display: flex; };
       .logos__cards:nth-last-of-type(-n+1) { display: none; };

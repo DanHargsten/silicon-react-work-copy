@@ -13,17 +13,13 @@ import ShowcaseImage from './ShowcaseImage';
 
 const Showcase = () => {
   return (
-    <section className="showcase">
-    <div className="container">
-
-      <ShowcaseHeader />
-
-      <ShowcaseContent />
-
-      <ShowcaseImage />
-      
+    <section aria-label="showcase" className="showcase">
+      <div className="container">
+        <ShowcaseHeader />
+        <ShowcaseContent />
+        <ShowcaseImage />      
     </div>
- </section>
+  </section>
   )
 }
 

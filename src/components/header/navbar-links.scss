@@ -9,16 +9,29 @@
    display: flex;
    align-items: center;
    justify-content: space-between;
-   margin-left: 6rem;
+   // margin-left: 4rem;
+   // margin-left: 4rem;
    z-index: 10;
 
+   @media (min-width: 768px) {
+
+      // margin-left: clamp(1rem, 2%, 5rem);
+      // margin-left: calc(1rem + ((4rem) * ((100vw - 768px) / 632)));
+      // margin-left: clamp(1rem, calc(1rem + (4rem) * ((100vw - 768px) / 632)), 5rem);
+   }
+   // @include b.breakpoint(768) {
+   //    margin-left: clamp(1rem, calc((5rem - 1rem) * ((100vw - 768px) / (1400 - 768)) + 1rem), 5rem); 
+   // }   
+
+   // Space between links
    .navbar__links-group {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
    }
 
+   // Link text styling
    .navbar__link-text {
-      position: relative;
+      position: relative;  // Used for hover animation
       @include fm.text-style(fv.$nav, c.$clr-text-primary, 600);
 
       transition: 250ms;
@@ -46,7 +59,7 @@
 
    .navbar__auth-button {
       position: absolute;
-      right: 0.75rem;
+      right: 0;
       top: 50%;
       transform: translateY(-50%); 
       
@@ -57,7 +70,7 @@
    
 
 
-   // @include b.breakpoint(1200, max) {
+   // @include b.breakpoint(768, max) {
    //    position: absolute;
    //    display: flex;
    //    top: 100%;

@@ -1,0 +1,44 @@
+@use './breakpoints.scss' as b;
+@use './colors.scss' as c;
+@use './font-mixins.scss' as fm;
+
+/*
+* Combined mixin for responsive text styles to reduce the amount of code
+* required when different breakpoints only uses different text styles and
+* no other major changes
+*
+* Handles size, weight and line-height at different breakpoints
+*
+* Breakpoints are:
+* Mobile (default)
+* Tablet (768px)
+* Desktop (1400px)
+*/
+
+
+ @mixin multi-responsive-text(
+   $mobile-size,
+   $tablet-size,
+   $desktop-size,
+   $color: c.$clr-grey-900,
+   $mobile-weight: 400,
+   $tablet-weight: $mobile-weight,
+   $desktop-weight: $tablet-weight,
+   $mobile-line-height: 1.3,
+   $tablet-line-height: $mobile-line-height,
+   $desktop-line-height: $tablet-line-height
+
+) {
+   // Mobil (default)
+   @include fm.text-style($mobile-size, $color, $mobile-weight, $mobile-line-height);
+
+   // Tablet
+   @include b.breakpoint(768) {
+      @include fm.text-style($tablet-size, $color, $tablet-weight, $tablet-line-height);
+   }
+
+   // Desktop
+   @include b.breakpoint(1400) {
+      @include fm.text-style($desktop-size, $color, $desktop-weight, $desktop-line-height);
+   }
+}

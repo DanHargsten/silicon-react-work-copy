@@ -10,15 +10,26 @@
    display: none;
 
    @include b.breakpoint(768) {
-      display: block;         
+      display: block;    
    }
+   // @include b.breakpoint(768) {
+   //    display: block;  
+   // }
 
-   @include b.breakpoint(1400) {
-      bottom: 6.6rem ;
+   @include b.breakpoint(1200) {
+      bottom: 7.6rem;
+      right: 6.2rem;
+      
       img {
          width: 100%; 
-         scale: 150%; 
+         scale: 165%; 
          height: auto;
       }
+   }
+      
+   
+   @include b.breakpoint(1400) {
+      bottom: 8.5rem;
+      right: 6.9rem;
    }
 }

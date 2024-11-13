@@ -2,22 +2,30 @@
 @use '../../styles/abstracts/colors' as c;
 @use '../../styles/abstracts/font-mixins' as fm;
 @use '../../styles/abstracts/font-variables' as fv;
+@use '../../styles/abstracts/responsive-mixins.scss' as rm;
 
 .showcase__headline {      
    grid-area: headline;
    text-align: center;
    margin-inline: auto;
-   line-height: 1.2;
-   font-size: 2,125rem;
-   width: 100%;
-   @include fm.text-style(fv.$d6, c.$clr-text-primary, 800);
+   width: 95%;
+
+   @include fm.text-style(fv.$h1, c.$clr-text-primary, 800);
 
    @include b.breakpoint(768) {
+      width: 85%;
       @include fm.text-style(fv.$d5, c.$clr-text-primary, 800);         
    }
-   @include b.breakpoint(1400) {          
+
+   @include b.breakpoint(992) {
+      width: 80%;         
+   }
+
+   @include b.breakpoint(1200) {          
+   // @include b.breakpoint(1400) {          
       text-align: left;
+      margin-left: 0;
+      width: auto;
       padding-top: 4rem;
-      @include fm.text-style(fv.$d4, c.$clr-text-primary, 800);
    }
 }

@@ -29,11 +29,10 @@
    width: calc(100% - 1.5rem);
    border-radius: 0.5rem;
    background-color: c.$clr-market-background;
-   padding: 0.5em 1em;
+   padding: 0.6em 1em;
 
    @include b.breakpoint(768) {
-      width: auto;
-      padding: 0.6em 1.3em;
+      width: 100%;
    }
 
    img {
@@ -61,6 +60,6 @@
       font-size: 1rem;
       color: c.$clr-btn-text-circle;
       background-color: c.$clr-btn-round;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
    }
 }

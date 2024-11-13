@@ -21,19 +21,17 @@ import './index.scss';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <>
-      <div className="wrapper space-y-5">
-        {/* <Contact /> */}
-        {/* <Header /> */}
-        {/* <Showcase /> */}
-        {/* <Logos /> */}
-        {/* <Features /> */}
-        {/* <Slider /> */}
-        <FeaturesExtended />
-        {/* <Testimonials /> */}
-        {/* <FaqList /> */}
-        {/* <Subscribe /> */}
-        {/* <Footer year={2024} credit={"MadrasThemes"} /> */}
-      </div>
+      {/* <Contact /> */}
+      <Header />
+      {/* <Showcase /> */}
+      {/* <Logos /> */}
+      {/* <Features /> */}
+      {/* <Slider /> */}
+      {/* <FeaturesExtended /> */}
+      {/* <Testimonials /> */}
+      {/* <FaqList /> */}
+      {/* <Subscribe /> */}
+      {/* <Footer year={2024} credit={"MadrasThemes"} /> */}
     </>
   </StrictMode>,
 );

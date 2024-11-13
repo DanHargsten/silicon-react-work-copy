@@ -8,12 +8,12 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   margin-right: 11rem;
+   margin-right: 14rem;
    z-index: 110;
 
-   @include b.breakpoint(1200, max) {
-      margin-right: 6rem;
-   }
+   // @include b.breakpoint(1200, max) {
+   //    margin-right: 6rem;
+   // }
 
    @include b.breakpoint(768, max) {
       margin-right: 3rem;
