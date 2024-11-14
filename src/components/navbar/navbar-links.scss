@@ -4,32 +4,63 @@
 @use '../../styles/abstracts/font-mixins.scss' as fm;
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
-.navbar__links-container {
-   width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   // margin-left: 4rem;
-   // margin-left: 4rem;
-   z-index: 10;
-
-   @media (min-width: 768px) {
-
-      // margin-left: clamp(1rem, 2%, 5rem);
-      // margin-left: calc(1rem + ((4rem) * ((100vw - 768px) / 632)));
-      // margin-left: clamp(1rem, calc(1rem + (4rem) * ((100vw - 768px) / 632)), 5rem);
+.navbar__links {
+   @include b.breakpoint(1200, max) {
+      position: absolute;
+      right: 0;
+      top: 60px;
+      background-color: c.$clr-background-primary;
+      
+      width: 0px;
+      height: calc(100vh - 60px);
+      transition: all 300ms ease;
+      overflow: hidden;
+      z-index: 100;
    }
-   // @include b.breakpoint(768) {
-   //    margin-left: clamp(1rem, calc((5rem - 1rem) * ((100vw - 768px) / (1400 - 768)) + 1rem), 5rem); 
-   // }   
+}
+
+.navbar__links.active {
+   width: 12rem;
+   // box-shadow: -1px 1px 2px #00000020;
+}
+
+.navbar__links-container {
+   // width: 100%;
+   // display: flex;
+   // align-items: center;
+   // justify-content: space-between;
+   // z-index: 10;
+
+   @include b.breakpoint(1200, max) {
+      margin-top: 2rem;
+      margin-inline: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5rem;
+   }
 
    // Space between links
    .navbar__links-group {
       display: flex;
       gap: 2rem;
+
+      @include b.breakpoint(1200, max) {
+         flex-direction: column;    
+      }
+
+      .navbar__home {
+         @include b.breakpoint(1200) {
+            display: none;
+         }
+      }
+
    }
 
-   // Link text styling
+
+
+
+   // Link text styling   
    .navbar__link-text {
       position: relative;  // Used for hover animation
       @include fm.text-style(fv.$nav, c.$clr-text-primary, 600);
@@ -57,11 +88,35 @@
    }
 
 
+   // Route active class
+   // .navbar__link-text.active {
+   //    color: c.$clr-primary;
+   // }
+   // .navbar__link-text.active::after {
+   //    content: '';
+   //    position: absolute;
+   //    top: 100%;
+   //    left: 0;
+   //    width: 100%;
+   //    height: 2px;
+   //    background-color: c.$clr-primary;
+   // }
+
+
+
    .navbar__auth-button {
       position: absolute;
       right: 0;
       top: 50%;
-      transform: translateY(-50%); 
+      transform: translateY(-50%);
+      
+      @include b.breakpoint(1200, max) {
+         position: relative;
+
+         .btn-small {
+            width: 100%;
+         }
+      }
       
       .navbar__auth-icon {
          padding-right: 0.5rem;
@@ -98,3 +153,7 @@
       @include bv.btn-primary();
    }
 }
+
+// .navbar__links.active {
+//    width: 270px;
+// }

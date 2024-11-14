@@ -5,15 +5,22 @@
 
 // Darkmode toggle
 .navbar__darkmode-toggle {
+   position: absolute;
+   right: 3rem;
+
    display: flex;
-   justify-content: center;
    align-items: center;
    margin-right: 14rem;
    z-index: 110;
 
-   // @include b.breakpoint(1200, max) {
-   //    margin-right: 6rem;
-   // }
+   @include b.breakpoint(768) {
+      right: -7rem;
+   }
+
+   @include b.breakpoint(1200) {
+      right: 0;
+   }
+   
 
    @include b.breakpoint(768, max) {
       margin-right: 3rem;
