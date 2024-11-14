@@ -15,29 +15,41 @@
       position: absolute;
       right: 0;
       top: 3.75rem;
-      width: 0px; // Hidden by default
-      height: calc(100vh - 60px);
+      height: 0; // Hidden by default
+      width: 100%;
       overflow: hidden; // Prevents content overflow
       
       background-color: c.$clr-background-primary;
       transition: all 300ms ease;
       z-index: 100;
+
+      // Creating extra border to separate links and login button
+      &::before {
+         content: '';
+         position: absolute;
+         top: 12rem; 
+         width: 100%;
+         height: 1px;
+         background-color: rgba(c.$clr-grey-500, 0.5);
+      }
    }
 }
 
 .navbar__links.active {
-   width: 12rem; // Visible when active
+   height: 20rem; // Visible when active
+   border-block: 1px solid rgba(c.$clr-grey-500, 0.5);
+
 }
 
-.navbar__links-container {
 
+.navbar__links-container {
    @include b.breakpoint(1200, max) {
       margin-top: 2rem;
       margin-inline: 1.5rem;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 5rem;
+      align-items: center;
+      gap: 5.3rem;
    }
 
    .navbar__links-group {
@@ -46,6 +58,8 @@
 
       @include b.breakpoint(1200, max) {
          flex-direction: column; // Stack links on smaller screens 
+         align-items: center;
+
       }
 
       .navbar__home {
@@ -93,6 +107,9 @@
       
       @include b.breakpoint(1200, max) {
          position: relative; // Adjusts for smaller screens
+
+         @include bv.btn-size('large');  // Make button a bit larger
+         padding-inline: 3em;
       }
       
       .navbar__auth-icon {
