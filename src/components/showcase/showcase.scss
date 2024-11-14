@@ -5,6 +5,7 @@
 
 .showcase {
    background-image: c.$clr-bg-gradient;
+   background-color: c.$clr-background-primary;
    margin-bottom: 4rem;
  
    .container {
@@ -21,27 +22,19 @@
  
      @include b.breakpoint(768) {
          grid-template-columns: 45% 55%;
-         // grid-template-columns: 40% 60%;
          grid-template-rows: auto auto;
          grid-template-areas:
             "headline headline"
             "content image";
      }
-   //   @include b.breakpoint(768) {
-   //       grid-template-columns: 1fr 1fr;
-   //       grid-template-rows: auto auto;
-   //       grid-template-areas:
-   //          "headline headline"
-   //          "content image";
-   //   }
+
 
      @include b.breakpoint(1200) {
-   //   @include b.breakpoint(1400) {
-         grid-template-columns: 1fr 1fr;
-         grid-template-rows: auto auto;
-         grid-template-areas:
-            "headline image"
-            "content image";
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+         "headline image"
+         "content image";
      }
    }
 }

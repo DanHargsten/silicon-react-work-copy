@@ -1,3 +1,8 @@
+//==========================================================
+// Styles for the navigation links within the navbar.
+// Includes styles for responsiveness, hover effects, and active states.
+//==========================================================
+
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/button-variables.scss' as bv;
 @use '../../styles/abstracts/colors.scss' as c;
@@ -5,31 +10,26 @@
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
 .navbar__links {
+   // Layout for smaller screens
    @include b.breakpoint(1200, max) {
       position: absolute;
       right: 0;
-      top: 60px;
-      background-color: c.$clr-background-primary;
-      
-      width: 0px;
+      top: 3.75rem;
+      width: 0px; // Hidden by default
       height: calc(100vh - 60px);
+      overflow: hidden; // Prevents content overflow
+      
+      background-color: c.$clr-background-primary;
       transition: all 300ms ease;
-      overflow: hidden;
       z-index: 100;
    }
 }
 
 .navbar__links.active {
-   width: 12rem;
-   // box-shadow: -1px 1px 2px #00000020;
+   width: 12rem; // Visible when active
 }
 
 .navbar__links-container {
-   // width: 100%;
-   // display: flex;
-   // align-items: center;
-   // justify-content: space-between;
-   // z-index: 10;
 
    @include b.breakpoint(1200, max) {
       margin-top: 2rem;
@@ -40,35 +40,32 @@
       gap: 5rem;
    }
 
-   // Space between links
    .navbar__links-group {
       display: flex;
-      gap: 2rem;
+      gap: 2rem; // Space between links
 
       @include b.breakpoint(1200, max) {
-         flex-direction: column;    
+         flex-direction: column; // Stack links on smaller screens 
       }
 
       .navbar__home {
          @include b.breakpoint(1200) {
-            display: none;
+            display: none; // Hide home link on larger screens
          }
       }
-
    }
 
 
 
-
-   // Link text styling   
+   // ---- Link text styling ----
    .navbar__link-text {
-      position: relative;  // Used for hover animation
+      position: relative;  // For hover animation
       @include fm.text-style(fv.$nav, c.$clr-text-primary, 600);
 
       transition: 250ms;
 
       &:hover {
-         color: c.$clr-primary;
+         color: c.$clr-primary; // Highlight on hover
       }
    }
 
@@ -84,76 +81,22 @@
    }
 
    .navbar__link-text:hover::before {
-      width: 100%;
+      width: 100%; // Expands underline on hover
    }
 
 
-   // Route active class
-   // .navbar__link-text.active {
-   //    color: c.$clr-primary;
-   // }
-   // .navbar__link-text.active::after {
-   //    content: '';
-   //    position: absolute;
-   //    top: 100%;
-   //    left: 0;
-   //    width: 100%;
-   //    height: 2px;
-   //    background-color: c.$clr-primary;
-   // }
-
-
-
    .navbar__auth-button {
-      position: absolute;
+      position: absolute; // Aligns within navbar
       right: 0;
       top: 50%;
       transform: translateY(-50%);
       
       @include b.breakpoint(1200, max) {
-         position: relative;
-
-         .btn-small {
-            width: 100%;
-         }
+         position: relative; // Adjusts for smaller screens
       }
       
       .navbar__auth-icon {
          padding-right: 0.5rem;
       }
    }
-   
-
-
-   // @include b.breakpoint(768, max) {
-   //    position: absolute;
-   //    display: flex;
-   //    top: 100%;
-   //    right: 0;
-   //    flex-direction: column-reverse;
-   //    justify-content: center;
-   //    gap: 1rem;
-   //    padding-block: 2rem;
-   //    background-color: c.$clr-bg;
-   //    box-shadow: 0 5px 5px -5px #00000020;
-
-   //    .navbar__link--action {
-   //       position: relative;
-   //       right: 0;
-   //    }
-   // }
-
-   .navbar-container {
-      display: flex;
-      gap: 2rem;
-   }
-
-   .navbar__link-button {
-      // @include bv.btn-size(small);
-      @include bv.btn-primary();
-   }
 }
-
-// .navbar__links.active {
-//    width: 270px;
-// }

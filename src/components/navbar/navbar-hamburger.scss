@@ -1,3 +1,7 @@
+//==========================================================
+// Styles for the hamburger menu, including animations for open/close states.
+//==========================================================
+
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/colors.scss' as c;
 
@@ -12,10 +16,9 @@
    top: 50%;
    transform: translateY(-50%);
    right: 1rem;
-   // position: relative;
 
    @include b.breakpoint(1200) {
-      display: none;
+      display: none; // Hide on larger screens
    }
 
    // Default styling for the bars
@@ -28,7 +31,7 @@
       transition: transform 300ms, opacity 300ms;
    }
 
-   // When the menu is open, change the bar animations
+   // Open state animations
    &.open .navbar__toggle-bar:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
    }
@@ -43,9 +46,7 @@
 }
 
 
-
-
-
+// Keyframes for menu animations
 @keyframes openMenu {
    from { opacity: 0; transform: translateY(-10px); }
    to { opacity: 1; transform: translateY(0); }

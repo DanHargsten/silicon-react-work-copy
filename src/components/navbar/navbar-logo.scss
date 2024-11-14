@@ -1,8 +1,10 @@
+// ===== Logo styles =====
+// This file contains styles for the NavbarLogo component, including the layout for the logo image and text.
+
 @use '../../styles/abstracts/colors.scss' as c;
 @use '../../styles/abstracts/font-mixins.scss' as fm;
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
-// Logo style
 .navbar__logo {
    display: flex;
    align-items: center;

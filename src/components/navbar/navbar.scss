@@ -1,3 +1,10 @@
+// navbar.scss
+//==========================================================
+// This component serves as the main navigation bar for the application.
+// It includes the logo, navigation links, a hamburger menu for mobile and tablet view,
+// and a toggle for dark mode.
+//==========================================================
+
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/button-variables.scss' as bv;
 @use '../../styles/abstracts/colors' as c;
@@ -8,12 +15,12 @@
    position: relative;
    background-color: c.$clr-background-primary;
 
-   // From Joakim Lindh
-   // Skip link for accessibility - visible when focused
+   // Skip link for accessibility by Joakim Lindh
+   // Provides a way to skip directly to the main content.
    .skip-link {
       position: absolute;
       top: 5rem;
-      left: -100vw;
+      left: -100vw; // Hidden off-screen initially
       display: inline-block;
       outline: none;
       padding: 1rem;
@@ -23,135 +30,16 @@
       transition: 250ms;
 
       &:focus {
-         left: 0;
+         left: 0; // Moves into view when focused
       }
    }
 
+   // --- Navbar Container ---
    .container {
-      position: relative;
+      position: relative; // Ensures positioning within the navbar
       display: flex;
       flex-direction: row;
       align-items: center;
-      // justify-content: space-between;
       padding: 0.5rem;
-      // padding-block: 0.5rem;
    }
-
-
-   // .navbar__logo {
-   //    display: flex;
-   //    align-items: center;
-   //    gap: 0.5rem;
-   
-   //    &-name {
-   //       @include fm.text-style(fv.$h4, c.$clr-text-primary, 800);
-   //       margin-bottom: 0.1rem;
-   //    }
-   // }
 }
-
-
-
-
-// .navbar__links-container {
-//    width: 100%;
-//    display: flex;
-//    align-items: center;
-//    justify-content: space-between;
-//    z-index: 10;
-
-
-//    // Space between links
-//    .navbar__links-group {
-//       display: flex;
-//       gap: 2rem;
-//    }
-
-//    // Link text styling   
-//    .navbar__link-text {
-//       position: relative;  // Used for hover animation
-//       @include fm.text-style(fv.$nav, c.$clr-text-primary, 600);
-
-//       transition: 250ms;
-
-//       &:hover {
-//          color: c.$clr-primary;
-//       }
-//    }
-
-//    .navbar__link-text::before {
-//       content: '';
-//       position: absolute;
-//       top: 100%;
-//       left: 0;
-//       width: 0%;
-//       height: 2px;
-//       background-color: c.$clr-primary;
-//       transition: 250ms;
-//    }
-
-//    .navbar__link-text:hover::before {
-//       width: 100%;
-//    }
-
-
-//    // Route active class
-//    .navbar__link-text.active {
-//       color: c.$clr-primary;
-//    }
-//    .navbar__link-text.active::after {
-//       content: '';
-//       position: absolute;
-//       top: 100%;
-//       left: 0;
-//       width: 100%;
-//       height: 2px;
-//       background-color: c.$clr-primary;
-//    }
-
-
-
-//    .navbar__auth-button {
-//       position: absolute;
-//       right: 0;
-//       top: 50%;
-//       transform: translateY(-50%); 
-      
-//       .navbar__auth-icon {
-//          padding-right: 0.5rem;
-//       }
-//    }
-   
-//    .navbar-container {
-//       display: flex;
-//       gap: 2rem;
-//    }
-
-//    .navbar__link-button {
-//       // @include bv.btn-size(small);
-//       @include bv.btn-primary();
-//    }
-// }
-
-
-// .navbar__toggle-bar {
-//    display: block;
-//    width: 100%;
-//    height: 3px;
-//    background-color: c.$clr-text-primary;
-//    margin: 6px 0;
-//    transition: transform 300ms, opacity 300ms;
-// }
-
-// // When the menu is open, change the bar animations
-// &.open .navbar__toggle-bar:nth-child(1) {
-//    transform: translateY(9px) rotate(45deg);
-// }
-
-// &.open .navbar__toggle-bar:nth-child(2) {
-//    opacity: 0; // Hide the middle bar
-// }
-
-// &.open .navbar__toggle-bar:nth-child(3) {
-//    transform: translateY(-9px) rotate(-45deg);
-// }

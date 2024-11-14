@@ -1,7 +1,13 @@
-import React from 'react'
+// NavbarDarkToggle.jsx
+//==========================================================
+// This component provides a toggle switch for enabling or disabling dark mode
+//==========================================================
+
+// import React from 'react'
 import './navbar-dark-toggle.scss';
 
-const NavbarDarkToggle = ({ isDarkMode, onToggle }) => (
+export const NavbarDarkToggle = ({ isDarkMode, onToggle }) => (
+// const NavbarDarkToggle = ({ isDarkMode, onToggle }) => (
    <div className="navbar__darkmode-toggle">
       <span className="navbar__darkmode-label">Dark Mode</span>
       <label className="navbar__darkmode-switch">
@@ -17,4 +23,4 @@ const NavbarDarkToggle = ({ isDarkMode, onToggle }) => (
    </div>
 );
 
-export default NavbarDarkToggle
+// export default NavbarDarkToggle

@@ -1,3 +1,7 @@
+//======================================================
+// Styles for the dark mode toggle switch in the navbar
+//======================================================
+
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/colors.scss' as c;
 @use '../../styles/abstracts/font-mixins.scss' as fm;
@@ -7,11 +11,14 @@
 .navbar__darkmode-toggle {
    position: absolute;
    right: 3rem;
-
    display: flex;
    align-items: center;
    margin-right: 14rem;
    z-index: 110;
+
+   @include b.breakpoint(768, max) {
+      margin-right: 3rem;
+   }
 
    @include b.breakpoint(768) {
       right: -7rem;
@@ -20,11 +27,8 @@
    @include b.breakpoint(1200) {
       right: 0;
    }
-   
 
-   @include b.breakpoint(768, max) {
-      margin-right: 3rem;
-   }
+   
 
    .navbar__darkmode-label {
       @include fm.text-style(fv.$nav, c.$clr-text-primary, 600);

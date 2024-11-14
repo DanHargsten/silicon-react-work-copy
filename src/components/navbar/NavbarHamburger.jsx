@@ -1,3 +1,8 @@
+// NavbarHamburger.jsx
+//==========================================================
+// This component represent the hamburger menu button for toggling the navigation link on smaller screen-sizes.
+//==========================================================
+
 import './navbar-hamburger.scss';
 
 export const NavbarHamburger = ({ handleIsOpen, isOpen }) => (
@@ -8,6 +13,7 @@ export const NavbarHamburger = ({ handleIsOpen, isOpen }) => (
        aria-expanded={isOpen}
        aria-label="Toggle navigation menu."
      >
+       {/* Hamburger icon bars */}
        <span className="navbar__toggle-bar"></span>
        <span className="navbar__toggle-bar"></span>
        <span className="navbar__toggle-bar"></span>
