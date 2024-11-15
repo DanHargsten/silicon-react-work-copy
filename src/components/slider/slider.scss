@@ -1,66 +1,52 @@
+
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/colors.scss' as c;
 @use '../../styles/abstracts/font-mixins.scss' as fm;
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
-.slider {
-   background-color: c.$clr-background-secondary;
-   padding-top: 5em;
-   padding-bottom: 6em;
-   display: none;
+.slider-section {
+   background-color: c.$clr-background-primary;
 
-   .container {
+   .slider__header {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      padding-bottom: 4rem;
+   
+   
+      &-title {
+         @include fm.text-style(fv.$h3, c.$clr-text-primary, 800);
+      }
    }
-
-   // Main heading for the slider
-   .slider__heading {
-      margin-bottom: 3rem;
+   
+   .swiper-slide {
+      height: auto;
+      width: auto;
+      opacity: 0.75;
+      transform: scale(0.85);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+   }
+   
+   .swiper-slide-active {
+      opacity: 1; // Full opacity för aktiva slide
+      transform: scale(1);   
+   }
+   
+   
+   .slider__slide-text {
+      display: none; // Dölj text som standard
       text-align: center;
-      @include fm.text-style(fv.$h3, c.$clr-text-primary, 800);
-
-      @include b.breakpoint(768) { @include fm.text-style(fv.$h2, c.$clr-text-primary, 800); };
-      @include b.breakpoint(1400) { @include fm.text-style(fv.$h1, c.$clr-text-primary, 800); };
+      margin-top: 10px;
    }
-
-   // Carousel container for images and text
-   .slider__carousel-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      // Carousel images arranged with spacing
-      .slider__carousel-images {
-         padding-bottom: 2.5em;
-         display: flex;
-         gap: 5rem;
-         margin: auto;    
-         
-         // Lower opacity for 1st and 3rd image
-         .carousel-image-1,
-         .carousel-image-3 {
-            opacity: 0.75;
-         }
-      }
-
-      // Subheading for the carousel content
-      .slider__carousel-heading {
-         margin-bottom: 0.75rem;
-         @include fm.text-style(fv.$h5, c.$clr-text-primary, 800); 
-
-         @include b.breakpoint(1400) { @include fm.text-style(fv.$h4, c.$clr-text-primary, 800); };
-      }
-
-      // Text content under the images
-      .slider__carousel-text {   
-         width: 40rem;
-         text-align: center;
-         @include fm.text-style(fv.$b-md, c.$clr-text-secondary);
-      }
-
+   
+   .swiper-slide-active .slider__slide-text {
+      display: block; // Visa text endast för aktiv slide
+   }
+   
+   
+   .slider__img {
+      width: 300px;
+      height: 660px;
+      margin-inline: auto;
    }
 }

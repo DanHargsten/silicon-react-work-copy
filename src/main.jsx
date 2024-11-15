@@ -25,16 +25,15 @@ createRoot(document.getElementById('root')).render(
       <BrowserRouter>
         {/* <Contact /> */}
         <Navbar />
-        {/* <Header /> */}
         <Showcase />
-        {/* <Logos /> */}
-        {/* <Features /> */}
-        {/* <Slider /> */}
-        {/* <FeaturesExtended /> */}
-        {/* <Testimonials /> */}
-        {/* <FaqList /> */}
-        {/* <Subscribe /> */}
-        {/* <Footer year={2024} credit={"MadrasThemes"} /> */}
+        <Logos />
+        <Features />
+        <Slider />
+        <FeaturesExtended />
+        <Testimonials />
+        <FaqList />
+        <Subscribe />
+        <Footer year={2024} credit={"MadrasThemes"} />
       </BrowserRouter>
     </>
   </StrictMode>,
