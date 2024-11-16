@@ -10,6 +10,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import { useApi } from '../../context/ApiContext';
 import './testimonials.scss';
 
 // Importing image assets for quote and star icons
@@ -20,12 +21,15 @@ import starFull from '../../assets/images/ratings/star-filled.svg';
 
 // Testimonials Component
 const Testimonials = () => {
+
+  const { getTestimonials } = useApi();
+
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await fetch('https://win24-assignment.azurewebsites.net/api/testimonials');
+        const response = await fetch(getTestimonials);
         
         // If response is not okay, throw an error
         if (!response.ok) {

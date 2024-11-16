@@ -1,7 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ApiProvider } from './context/ApiContext';
+
 
 
 import ContactPage from './pages/ContactPage';
@@ -17,7 +18,7 @@ import './index.scss';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <>
+    <ApiProvider>
       <BrowserRouter>
         <div className="wrapper">
           <Navbar />
@@ -28,6 +29,6 @@ createRoot(document.getElementById('root')).render(
           <Footer year={2024} credit={"MadrasThemes"} />
         </div>
       </BrowserRouter>
-    </>
+    </ApiProvider>
   </StrictMode>,
 );

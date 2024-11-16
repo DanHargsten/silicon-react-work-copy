@@ -9,8 +9,7 @@
 // defining how the sections should be arranged on mobile and desktop views.
 // ==========================================
 .faq {
-   margin-bottom: 4rem;
-
+   padding-block: 4rem;
 
    .container {   
       gap: 1rem;
@@ -56,7 +55,6 @@
    .faq__section {
       @include b.breakpoint(768, max) {
          // ---- Mobile and Tablet Adjustments ----
-         margin-bottom: 0;
          box-shadow: none;
 
 

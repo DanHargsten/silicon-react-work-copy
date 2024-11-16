@@ -14,17 +14,21 @@ import React, { useEffect, useState } from 'react';
 import FaqContact from './FaqContact';
 import FaqHeader from './FaqHeader';
 import FaqItem from './FaqItem';
+import { useApi } from '../../context/ApiContext';
 
 import './faq-list.scss';
 
 const FaqList = () => {
+
+   const { getFaqs } = useApi();
+
    const [faqs, setFaqs] = useState([]);
 
    // Fetch FAQ data from API on component mount
    useEffect(() => {
       async function fetchFaqData() {
          try {
-            const response = await fetch('https://win24-assignment.azurewebsites.net/api/faq');
+            const response = await fetch(getFaqs);
             if (!response.ok) {
                throw new Error('Network response was not ok');
             }

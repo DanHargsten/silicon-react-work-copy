@@ -29,8 +29,8 @@ function Home() {
   return (
     <>
       <Showcase />
-      <Features id="features" />
       <Logos />
+      <Features id="features" />
       <Slider />
       <FeaturesExtended />
       <Testimonials />

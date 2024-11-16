@@ -10,7 +10,7 @@ import iconAppStoreDark from '../../assets/images/logos/appstore-dark.svg';
 /**
  * Component for displaying the showcase content, including text and download buttons.
  */
-const ShowcaseContent = () => (
+const ShowcaseContent = ({ onDiscoverClick }) => (
   <div className="showcase__content">
     <p className="showcase__content-text">
       We offer you a new generation of mobile banking. Save, spend & manage money in your pocket.
@@ -34,7 +34,14 @@ const ShowcaseContent = () => (
 
     {/* "Discover more" button */}
     <div className="showcase__more">
-      <a href="#" className="btn-circle">
+      <a
+        href="#slider"
+        className="btn-circle"
+        onClick={(e) => {
+          e.preventDefault();
+          onDiscoverClick();
+        }}
+      >        
         <i className="bx bx-chevron-down"></i>
       </a>
       <span className="showcase__more-text">Discover more</span>

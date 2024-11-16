@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
+import { useApi } from '../../context/ApiContext';
 
 import './contact-consultation-form.scss';
 
 const ContactConsultationForm = () => {
+   
+   const { contact } = useApi();
+   
    const {
       register,
       handleSubmit,
@@ -13,12 +17,11 @@ const ContactConsultationForm = () => {
    } = useForm();
 
    const [submitted, setSubmitted] = useState(false);
-
       
    const onSubmit = async (data) => {
       console.log('Form submitted: ', data);
       try {
-         const response = await fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
+         const response = await fetch(contact, {
             method: 'POST',
             headers: {
                'Content-Type': 'application/json',
@@ -81,9 +84,12 @@ const ContactConsultationForm = () => {
                placeholder="Enter your full name"
                {...register('fullName', {
                   required: 'Full name is required',
-                  pattern: {
-                     value: /^[A-Za-z]+( [A-Za-z]+)+$/,
-                     message: 'Please enter your full name with at least two words',
+                  validate: (value) => {
+                     const trimmedValue = value.trim();
+                     if (!/^[A-Za-z]+( [A-Za-z]+)+$/.test(trimmedValue)) {
+                        return 'Please enter your full name with at least two words';
+                      }
+                      return true;
                   },
                })}
                type="text"

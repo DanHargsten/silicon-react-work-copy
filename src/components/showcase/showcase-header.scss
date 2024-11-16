@@ -10,7 +10,7 @@
    margin-inline: auto;
    width: 95%;
 
-   @include fm.text-style(fv.$h1, c.$clr-text-primary, 800);
+   @include fm.text-style(fv.$h2, c.$clr-text-primary, 800);
 
    @include b.breakpoint(768) {
       width: 85%;

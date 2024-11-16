@@ -4,23 +4,64 @@
 @use '../../styles/abstracts/font-mixins.scss' as fm;
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
+
 .slider-section {
    background-color: c.$clr-background-secondary;
-   padding-block: 5rem;
+   padding-block: 4rem;
+
+   .container {
+      gap: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+   }
 
    .slider__header {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-bottom: 4rem;
+      text-align: center;
    
    
       &-title {
-         @include fm.text-style(fv.$h3, c.$clr-text-primary, 800);
+         @include fm.text-style(fv.$h2, c.$clr-text-primary, 800);
       }
    }
+
+   .slider__slide-text {
+      display: none; 
+      text-align: center;
+      margin-top: 10px;
+   }
    
-   .swiper-slide {
+   .slider__slide-title {
+      margin-inline: auto;
+      width: 80%;
+      @include fm.text-style(fv.$h3, c.$clr-text-primary, 800, 1.4);
+
+      @include b.breakpoint(768) {
+         width: 100%;
+      }
+   }
+
+   .slider__slide-description {
+      padding-inline: 0.75rem;
+      margin-top: 1rem;
+      text-wrap: pretty;
+      @include fm.text-style(fv.$h6, c.$clr-text-secondary, 400, 1.6);  
+
+      @include b.breakpoint(568) {
+         margin-inline: -6rem;
+      }
+   }
+
+
+   .swiper {
+      width: 100%;
+      max-width: 1200px;
+   }
+   
+   .swiper-slide {  
       height: auto;
       width: auto;
       opacity: 0.75;
@@ -29,25 +70,20 @@
    }
    
    .swiper-slide-active {
-      opacity: 1; // Full opacity för aktiva slide
+      opacity: 1; // Full opacity for active slide
       transform: scale(1);   
    }
    
-   
-   .slider__slide-text {
-      display: none; // Dölj text som standard
-      text-align: center;
-      margin-top: 10px;
-   }
+
    
    .swiper-slide-active .slider__slide-text {
-      display: block; // Visa text endast för aktiv slide
-   }
+      display: block;    }
    
    
    .slider__img {
       width: 300px;
       height: 660px;
       margin-inline: auto;
+
    }
 }

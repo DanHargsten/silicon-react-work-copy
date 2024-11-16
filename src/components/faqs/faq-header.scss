@@ -22,7 +22,7 @@
       margin-inline: auto;  // Centers the title horizontally
       padding-bottom: 1rem;
       text-wrap: pretty;  // Ensures that text wraps nicely if it overflows
-      @include fm.text-style(fv.$h4, c.$clr-text-primary, 800);
+      @include fm.text-style(fv.$h3, c.$clr-text-primary, 800);
 
       @include b.breakpoint(768) {  // Increase font size at tablet/desktop size
          font-size: fv.$h2;
@@ -39,8 +39,9 @@
    // ---- Subtext Styling ----
    &-text {
       margin-inline: auto;  // Centers the subtitle horizontally
-      padding-bottom: 3em;
-      text-wrap: pretty;  // Ensures that text wraps well
+      padding-bottom: 2.5rem;
+      width: 90%;
+      text-wrap: pretty; 
       @include fm.text-style(fv.$b-lg, c.$clr-text-secondary, 400, 1.6);
 
       // ---- Desktop Adjustment ----

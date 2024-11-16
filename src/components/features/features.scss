@@ -9,8 +9,14 @@
 // ===========================================
 .features {
    
+   padding-block: 3rem;
+   
    // Container for layout adjustments on larger screens
    .container {
+      gap: 2rem;
+      display: flex;
+      flex-direction: column;
+
       @include b.breakpoint(1400) {
          display: grid;
          grid-template-areas: "phone heading"
@@ -42,7 +48,7 @@
 
       // ---- Title Styling ----
       .features__title {
-         @include fm.text-style(fv.$h3, c.$clr-text-primary, 800);
+         @include fm.text-style(fv.$h2, c.$clr-text-primary, 800);
          text-align: center;
 
          // Adjust title styling for larger screens
@@ -56,7 +62,7 @@
       .features__subtext {
          @include fm.text-style(fv.$b-lg, c.$clr-text-secondary);
          text-align: center;
-         padding-block: 1em;
+         padding-top: 1em;
          padding-inline: 0.75em;
 
          // Adjust subtitle positioning on large screens
@@ -64,7 +70,7 @@
             text-align: left;
             padding-left: 0;
             padding-inline: 0;
-            margin-bottom: -4rem;        
+            margin-bottom: -6rem;        
          }
       }
    }   

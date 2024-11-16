@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useApi } from '../../context/ApiContext';
 
 import './subscribe.scss';
 
@@ -8,6 +9,9 @@ import envelope from '../../assets/images/icons/envelope.svg';
 
 
 const Subscribe = () => {
+  
+  const { subscribe } = useApi();
+
   const {
     register,
     handleSubmit,
@@ -21,7 +25,7 @@ const Subscribe = () => {
   const onSubmit = async (data) => {
     console.log("Subscribed with email:", data.email);
     try {
-      const response = await fetch('https://win24-assignment.azurewebsites.net/api/forms/subscribe', {
+      const response = await fetch(subscribe, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -74,7 +78,18 @@ return (
 
 
       {/* Email input form */}
-      <form onSubmit={handleSubmit(onSubmit)} noValidate className="subscribe__form" aria-label="Newsletter subscription form.">
+      {/* <form onSubmit={handleSubmit(onSubmit)} noValidate className="subscribe__form" aria-label="Newsletter subscription form."> */}
+      <form
+        className="subscribe__form"
+        aria-label="Newsletter subscription form."
+        noValidate
+        onSubmit={async (e) => {
+          e.preventDefault();
+          const result = await trigger();
+          if (result) handleSubmit(onSubmit)(e);
+        }}
+        // {handleSubmit(onSubmit)}
+      >
         <label htmlFor="email" className="sr-only">Enter your email to subscribe to our newsletter.</label>
       
         <div className="subscribe__input-wrapper">            
