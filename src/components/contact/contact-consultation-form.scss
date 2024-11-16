@@ -115,3 +115,9 @@
 body.dark-mode .consultation {
    box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.15);
 }
+
+.contact-error {
+   margin-left: 0.5rem;
+   color: c.$clr-error;
+   font-size: 0.9rem;
+}

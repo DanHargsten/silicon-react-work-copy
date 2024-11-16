@@ -12,8 +12,12 @@
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
 .navbar {
-   position: relative;
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+   // position: relative;
    background-color: c.$clr-background-primary;
+   border: 1px solid rgba(c.$clr-grey-500, 0.5);
 
    // Skip link for accessibility by Joakim Lindh
    // Provides a way to skip directly to the main content.
