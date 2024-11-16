@@ -1,0 +1,57 @@
+@use '../abstracts/colors.scss' as c;
+@use '../abstracts/font-mixins.scss' as fm;
+@use '../abstracts/font-variables.scss' as fv;
+
+.info-overlay {
+   position: fixed; 
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 999; 
+ }
+ 
+ .info-box {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: c.$clr-background-secondary;
+   border: 1px solid c.$clr-text-primary;
+   padding: 2rem;
+   border-radius: 0.5rem;
+   text-align: center;
+   z-index: 100;
+   width: 90%;
+   max-width: 40rem;
+ 
+   h1 {
+     @include fm.text-style(fv.$h3, c.$clr-text-primary, 800);
+     margin-bottom: 1rem;
+   }
+ 
+   p {
+     @include fm.text-style(fv.$h6, c.$clr-text-primary);
+     margin-bottom: 1.5rem;
+   }
+ 
+   .btn-small {
+     padding: 0.5rem 2rem;
+   }
+ }
+ 
+ .info-overlay,
+ .info-box {
+   animation: fadeIn 300ms ease;
+ }
+ 
+ @keyframes fadeIn {
+   from {
+     opacity: 0;
+   }
+   to {
+     opacity: 1;
+   }
+ }
+ 
