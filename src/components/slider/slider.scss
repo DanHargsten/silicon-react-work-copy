@@ -5,7 +5,8 @@
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
 .slider-section {
-   background-color: c.$clr-background-primary;
+   background-color: c.$clr-background-secondary;
+   padding-block: 5rem;
 
    .slider__header {
       display: flex;

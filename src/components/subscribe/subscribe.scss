@@ -29,6 +29,7 @@
 // container, header, form, and input/button elements.
 // ==========================================
 .subscribe {
+   @include b.breakpoint(568, max) { padding-inline: 1rem; }
 
    // ----------------------------------------
    // Container
@@ -38,7 +39,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-block: 1.5em;
+      gap: 2rem;
+      padding-block: 2rem;
       border-radius: 0.5rem;
       background-color: c.$clr-background-secondary;
       text-align: center;
@@ -49,10 +51,12 @@
          align-items: center;
          text-align: left;
          padding-inline: 1.5rem;
+         padding-block: 3rem;
       }
 
       @include b.breakpoint(1400) {
-         padding-inline: 6.875em;  // Increases padding on larger screens
+         padding-inline: 6.875em;
+         padding-block: 2rem;
       }
    }
 
@@ -67,9 +71,9 @@
       align-items: center;
       gap: 1rem;
 
-      @include b.breakpoint(768, max) {
-         margin-bottom: 1rem;  // Adds bottom margin on smaller screens
-      } 
+      // @include b.breakpoint(768, max) {
+      //    margin-bottom: 1rem;  // Adds bottom margin on smaller screens
+      // } 
 
       @include b.breakpoint(1200) {
          padding-block: 2rem;  // Adds vertical padding on larger screens
@@ -83,12 +87,12 @@
          max-width: 15ch; // Ensures title wraps on smaller screens
 
          // ---- Font styling for the title ----
-         @include fm.text-style(fv.$h5, c.$clr-text-primary, 800, 1.4);
+         @include fm.text-style(fv.$h4, c.$clr-text-primary, 800, 1.4);
          text-align: left;
 
          @include b.breakpoint(1200) {
             max-width: none;  // Removes width restriction on larger screens
-            @include fm.text-style(fv.$h4, c.$clr-text-primary, 800, 1.4);
+            @include fm.text-style(fv.$h4, c.$clr-text-primary, 800, 1.4); //////////
 
             &:after {
                content: " to stay informed about latest updates";  // Appends text on larger screens

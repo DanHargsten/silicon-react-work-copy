@@ -10,9 +10,9 @@ import phoneYourCards from '../../assets/images/illustrations/phone-your-cards.s
 // ===========================================
 // Features Component - Main Structure
 // ===========================================
-const Features = () => {
+const Features = ({id}) => {
    return (
-      <section className="features">
+      <section id={id} className="features">
          <div className="container">
 
             {/* ---- Image Section ---- */}

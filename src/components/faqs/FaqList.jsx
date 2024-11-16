@@ -37,6 +37,10 @@ const FaqList = () => {
       fetchFaqData();
    }, []);   
 
+  
+  
+  
+  
    return (
       <section className="faq">
          <div className="container">

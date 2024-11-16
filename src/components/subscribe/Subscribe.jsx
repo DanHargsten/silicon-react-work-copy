@@ -1,16 +1,25 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+
 import './subscribe.scss';
 
 import bellIcon from '../../assets/images/illustrations/bell-icon.svg';
 import envelope from '../../assets/images/icons/envelope.svg';
 
 const Subscribe = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, clearErrors } = useForm();
 
   const onSubmit = (data) => {
     console.log("Subscribed with email:", data.email)
   };
+
+  const handleInputChange = () => {
+    if (errors.email) {
+      clearErrors("email");
+    }
+  };
+
+  
 
   
   return (
@@ -40,12 +49,13 @@ const Subscribe = () => {
               placeholder="Enter your email"
               aria-label="Enter your email to subscribe to our newsletter."
               {...register("email", {
-                required: "Email is required.",
+                required: "Email is required",
                 pattern: {
                   value: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
                   message: "Please enter a valid email adress"
                 }
               })}
+              onInput={handleInputChange}
             />
 
             {/* Submit button */}

@@ -5,7 +5,9 @@
 
 
 footer {
-   padding-bottom: 3.4rem;
+   padding-block: 1.875rem;
+   @include b.breakpoint(768) { padding-block: 1.25rem ;}
+   @include b.breakpoint(1400) { padding-block: 3.375rem ;}
 
    // Centering content ensuring layout works on different screen sizes
    .footer-container {

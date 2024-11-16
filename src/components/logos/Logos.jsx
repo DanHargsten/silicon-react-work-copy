@@ -34,7 +34,7 @@ const Logos = () => {
   // ========== Render: Logos Section ==========
   // Renders the logos section containing a grid of logos
   return (
-    <section className="logos container" aria-label="Brand logos.">
+    <section className="logos container mb-5" aria-label="Brand logos.">
       <div className="logos-container">
         {logos.map((logo, index) => (
           <div className="logos__cards" key="index"> 

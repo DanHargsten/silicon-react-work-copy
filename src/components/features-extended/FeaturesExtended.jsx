@@ -19,7 +19,7 @@ import iconCashback from '../../assets/images/icons/ft-regular-cashback.svg';
 
 const FeaturesExtended = () => {
   return (
-    <section className="features-extended">
+    <section className="features-extended mb-5">
     <div className="container">
 
 
