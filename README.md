@@ -13,7 +13,7 @@ Detta projekt syftar till att skapa en **responsiv** och **användarvänlig** we
 - **Responsivitet:**
   - Contact-sektionen fungerar bra på mobil men har layoutproblem (fungerar inte alls) på tablet och desktop.
     
-  - **Gissning:** Problemet hänger ihop med `.container`-klassen.
+  - **Gissning:** Problemet hänger ihop med `.container`-klassen som verkar påverka andra sektioner som navbarens länkar när jag försöker göra ändringar.
   - **Lösning:** I framtida projekt planerar jag att använda @extend eller mixins för att skapa en mer modulär och isolerad layoutstruktur.
   
 - **Tid och resurser:**
