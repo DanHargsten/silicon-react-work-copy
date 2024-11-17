@@ -1,3 +1,9 @@
+// ==========================================
+// Showcase Header Styling
+// Styles the main header text for the showcase section, with different
+// font sizes and alignment based on screen size.
+// ==========================================
+
 @use '../../styles/abstracts/breakpoints' as b;
 @use '../../styles/abstracts/colors' as c;
 @use '../../styles/abstracts/font-mixins' as fm;
@@ -21,8 +27,7 @@
       width: 80%;         
    }
 
-   @include b.breakpoint(1200) {          
-   // @include b.breakpoint(1400) {          
+   @include b.breakpoint(1200) {                   
       text-align: left;
       margin-left: 0;
       width: auto;

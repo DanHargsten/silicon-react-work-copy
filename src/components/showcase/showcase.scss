@@ -1,13 +1,22 @@
+// ==========================================
+// Showcase Section Styling
+// Layout and design for the main showcase section, including grid areas
+// for headline, content, and image with responsive adjustments.
+// ==========================================
 @use '../../styles/abstracts/breakpoints' as b;
 @use '../../styles/abstracts/colors' as c;
 @use '../../styles/abstracts/font-mixins' as fm;
 @use '../../styles/abstracts/font-variables' as fv;
+
 
 .showcase {
    padding-top: 3rem;
    background-image: c.$clr-bg-gradient;
    background-color: c.$clr-background-primary;
  
+   // --------------------------
+   // Container Grid Layout
+   // Defines the layout for headline, content, and image.
    .container {
       position: relative;
       display: grid;
@@ -20,7 +29,8 @@
       justify-items: center;
       align-items: center;
  
-     @include b.breakpoint(768) {
+      // Medium Screen Layout
+      @include b.breakpoint(768) {
          grid-template-columns: 45% 55%;
          grid-template-rows: auto auto;
          grid-template-areas:
@@ -29,7 +39,8 @@
      }
 
 
-     @include b.breakpoint(1200) {
+     // Large Screen Layout
+      @include b.breakpoint(1200) {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto;
       grid-template-areas:

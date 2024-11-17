@@ -1,7 +1,7 @@
 // ==========================================
-// Testimonials Section
-// 
+// Testimonials Section 
 // Handles the layout and styling for the testimonials section of the website.
+// Only visible on screens wider than 1400px.
 // ==========================================
 
 @use '../../styles/abstracts/breakpoints.scss' as b;
@@ -10,7 +10,9 @@
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
 
-// Setting background color and padding for clear section separation
+// ==========================
+// Main Testimonials Section
+// ==========================
 .testimonials {
    padding-block: 7em;
    margin-block: 7rem;
@@ -21,20 +23,29 @@
       display: none;
    }
    
+  
+   // --------------------------
+   // Grid Layout for Testimonials
+   // --------------------------
    .container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 1.5rem;
    }
 
-   // ---- Main heading styling for testimonials section ----
+
+   // --------------------------
+   // Section Heading
+   // --------------------------
    &__heading { 
-      width: 80%;  // Forcing a linebreak for a more pleasing layout
+      width: 80%;  // Force a line break for improved layout
       @include fm.text-style(fv.$h1, c.$clr-text-primary, 800);
    }
 
    
-   // ---- Testimonials Card ----
+   // --------------------------
+   // Individual Testimonial Card
+   // --------------------------
    &__card {
       position: relative;
       display: flex;
@@ -45,12 +56,18 @@
       padding: 1.5em;
       padding-top: 3em;
       gap: 1.5rem;
-      box-shadow: 0 0 4px #00000015; // Subtle shadow for depth
+      box-shadow: 0 0 4px #00000015;
 
-      // outline-color: c.$clr-primary; 
+      // ---- Focus outline for keyboard users ----
+      &:focus-within {
+         outline: 2px solid c.$clr-primary; /* Highlight card on focus */
+      }
 
-      // ---- Quote Icon for each card ----
+
+      // --------------------------
+      // Quote Icon Styling
       // Positions icon slightly above the card
+      //--------------------------
       .testimonials__quote {
          position: absolute;
          top: -6%; 
@@ -59,7 +76,9 @@
       }
       
 
-      // ---- Star Rating Display ----
+      // ------------------
+      // Star Rating Styling
+      // ------------------
       .testimonials__rating {
          display: flex;
          width: 88px;
@@ -67,19 +86,23 @@
       }
       
       
-      // ---- Testimonial Text Styling ----
+      // ------------------
+      // Testimonial Text
+      // ------------------
       .testimonials__text {
          @include fm.text-style(fv.$b-lg, c.$clr-text-secondary, 400, 1.6);
       }
       
-      // ---------------------------------------
+      
+      // ==========================
       // User Info Section
-      // Styles the section with user avatar, name, and job role
-      // ---------------------------------------
+      // Displays user photo, name, and job role
+      // ==========================
       .testimonials__user-info {
          display: flex;
          gap: 0.7rem;  // Space between user photo and text
 
+         // ---- User Text Container ----
          .testimonials__user-text {
             display: flex;
             flex-direction: column;
@@ -95,5 +118,17 @@
             }
          }
       }
+   }
+
+   // ==========================
+   // Fallback Styling
+   // Styling for the fallback message displayed when there are no testimonials.
+   // ==========================
+   .testimonials__fallback {
+      text-align: center;
+      margin-top: 2rem; 
+      color: c.$clr-text-secondary;
+      font-style: italic;
+      @include fm.text-style(fv.$b-lg, c.$clr-text-secondary, 400, 1.5);
    }
 }

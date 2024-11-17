@@ -1,16 +1,13 @@
-/*
- * =================== Testimonials Component ===================
- * This component fetches and displays client testimonials for the app.
- * Each testimonial includes:
- * - A star rating, rendered dynamically based on the `starRating` value.
- * - A comment from the client about the app.
- * - User information, including the client's avatar, name, and job role.
- * 
- *  Assistance with code structuring for useEffect and API-calls by ChatGPT  
- */
+// ======================================
+// Displays a list of client testimonials fetched from an API.
+// Each testimonial includes a rating, comment, and user information.
+//  
+//  Assistance with code structuring for useEffect and API-calls by ChatGPT  
+// ======================================
 
 import React, { useEffect, useState } from 'react';
 import { useApi } from '../../context/ApiContext';
+
 import './testimonials.scss';
 
 // Importing image assets for quote and star icons
@@ -19,19 +16,22 @@ import starEmpty from '../../assets/images/ratings/star-empty.svg';
 import starFull from '../../assets/images/ratings/star-filled.svg';
 
 
-// Testimonials Component
+// ======== Testimonials Component ========
 const Testimonials = () => {
 
+  // ========== API Context ==========
   const { getTestimonials } = useApi();
 
+  // ========== State: Testimonials Data ==========
   const [testimonials, setTestimonials] = useState([]);
 
+  // ========== Effect: Fetch Testimonials ==========
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
         const response = await fetch(getTestimonials);
         
-        // If response is not okay, throw an error
+        // Handle non-200 responses
         if (!response.ok) {
           throw new Error('Network reponse was not ok');
         }
@@ -49,36 +49,47 @@ const Testimonials = () => {
   
   // ---- Render testimonials ----
   return (
-    <section className="testimonials">
+    <section className="testimonials" aria-label="Client testimonials about the app">
       <div className="container">
 
         {/* Section heading */}
         <h2 className="testimonials__heading">Clients are Loving Our App</h2>
 
-        {/* Map over each testimonial in the array */}
+        {/* Fallback: No Testimonials */}
+        {testimonials.length === 0 && (
+          <p className="testimonials__fallback" role="status">No testimonials available at the moment.</p>
+        )}
+
+        {/* Testimonials List */}
         {testimonials.map((testimonial) => (
-          // tabIndex to make testimonials focusable for screenreaders
+
+          // ========== Testimonial Card ==========
           <figure key={testimonial.id} className="testimonials__card" tabIndex="0">
-            {/* Quote icon positioned at the top */}
+            
+            {/* Quote icon */}
             <img className="testimonials__quote" src={quote} alt="" aria-hidden="true" />
 
-            {/* Star rating display */}
-            <div className="testimonials__rating" aria-label={`Rating: ${testimonial.starRating} out of 5`}>              
+            {/* Rating */}
+            <div className="testimonials__rating" aria-label={`Rating: ${testimonial.starRating} out of 5`}> 
+              
               {/* Render full stars based on the rating value */}
               {Array(testimonial.starRating).fill().map((_, index) => (
                 <img key={`full-${index}`} src={starFull} alt="Full star" />
               ))}
+
               {/* Render empty stars for remaining out of 5 stars */}
               {Array(5 - testimonial.starRating).fill().map((_, index) => (
                 <img key={`empty-${index}`} src={starEmpty} alt="Empty star" />
               ))}
             </div>
 
+
             {/* Testimonial text */}
-            <blockquote className="testimonials__text">
+            <blockquote className="testimonials__text" id={`testimonial-${testimonial.id}`}>
               {testimonial.comment}
             </blockquote>
 
+            
             {/* User info with avatar and name */}
             <figcaption className="testimonials__user-info">
               <img

@@ -1,3 +1,10 @@
+// ==========================================
+// Subscribe Section
+// Handles the layout, design, and functionality for the newsletter
+// subscription section, including a form with validation, error handling, and
+// a responsive design. Provides visual feedback upon successful submission.
+// ==========================================
+
 @use '../../styles/abstracts/breakpoints' as b;
 @use '../../styles/abstracts/button-variables' as bv;
 @use '../../styles/abstracts/colors' as c;
@@ -7,7 +14,6 @@
 
 // ==========================================
 // Helper Class
-// 
 // Visually hides elements but keeps them accessible to screen readers.
 // ==========================================
 .sr-only {
@@ -23,18 +29,20 @@
 
 
 // ==========================================
-// Subscribe Section
-// 
+// Subscribe Section 
 // Layout and styling for the subscribe section, including the
 // container, header, form, and input/button elements.
 // ==========================================
 .subscribe {
-   @include b.breakpoint(568, max) { padding-inline: 1rem; }
+   @include b.breakpoint(568, max) {
+      padding-inline: 1rem;
+   }
 
-   // ----------------------------------------
+
+   // ---------------------------------------------
    // Container
    // Centers content and applies responsive grid on larger screens.
-   // ----------------------------------------
+   // ---------------------------------------------
    .container {
       display: flex;
       flex-direction: column;
@@ -71,10 +79,6 @@
       align-items: center;
       gap: 1rem;
 
-      // @include b.breakpoint(768, max) {
-      //    margin-bottom: 1rem;  // Adds bottom margin on smaller screens
-      // } 
-
       @include b.breakpoint(1200) {
          padding-block: 2rem;  // Adds vertical padding on larger screens
       }
@@ -92,7 +96,7 @@
 
          @include b.breakpoint(1200) {
             max-width: none;  // Removes width restriction on larger screens
-            @include fm.text-style(fv.$h4, c.$clr-text-primary, 800, 1.4); //////////
+            @include fm.text-style(fv.$h4, c.$clr-text-primary, 800, 1.4);
 
             &:after {
                content: " to stay informed about latest updates";  // Appends text on larger screens
@@ -136,6 +140,7 @@
             left: 0.5rem;
             color: c.$clr-error;
             font-size: 0.9rem;
+            font-style: italic;
          }
 
 
@@ -153,7 +158,7 @@
             }
 
             &::placeholder {
-               color: c.$clr-grey-500; // Lighter color for placeholder text
+               color: c.$clr-grey-500;
                font-style: italic;
             }
          }
@@ -177,10 +182,8 @@
             @include b.breakpoint(992) {
                @include bv.btn-size(large);
                border-radius: 0 0.5rem 0.5rem 0;
-            };
+            }
          }
       }
-   }
-
-   
+   }   
 }

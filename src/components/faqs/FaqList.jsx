@@ -1,13 +1,10 @@
-/*
- * FaqList Component
- * 
- * Renders the FAQ section, including:
- * - FaqHeader: Displays section heading
- * - FaqItem: Accordion items, populated with FAQ data from API
- * - FaqContact: Contact section for further questions
- * 
- * Assistance with code structuring by ChatGPT
- */
+// ===========================================
+// FaqList Component
+// Renders the FAQ section, including the header, accordion list of questions,
+// and a contact section for users who need further help.
+//
+// Assistance with code structuring and API-calls by ChatGPT
+// ===========================================
 
 import React, { useEffect, useState } from 'react';
 
@@ -21,7 +18,6 @@ import './faq-list.scss';
 const FaqList = () => {
 
    const { getFaqs } = useApi();
-
    const [faqs, setFaqs] = useState([]);
 
    // Fetch FAQ data from API on component mount
@@ -44,10 +40,10 @@ const FaqList = () => {
   
   
   
-  
    return (
       <section className="faq">
          <div className="container">
+           
             {/* FAQ Header */}
             <FaqHeader />
 

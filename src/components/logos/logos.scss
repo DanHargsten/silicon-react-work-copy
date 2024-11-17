@@ -1,5 +1,4 @@
 // ==========================
-// Logos Section Styling
 // Styles for the logos section, using grid layout for responsive display
 // and dynamic adjustments based on screen size.
 // ==========================
@@ -27,7 +26,6 @@
 
     // ---------- Logos Grid Container ----------
    .logos-container {
-   // .logos-container {
       width: 100%; 
       margin: 0;
       padding: 0;
@@ -76,7 +74,7 @@
    };
 
    // Show first 5 logos on larger screens
-   // Not the most elegant solution perhaps...
+   // Not the most elegant solution...
    @include b.breakpoint(1200) {
       .logos__cards:nth-last-of-type(-n+2) { display: flex; };
       .logos__cards:nth-last-of-type(-n+1) { display: none; };

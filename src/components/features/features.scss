@@ -1,17 +1,23 @@
+// ===========================================
+// Features Section Styling
+// Handles the layout and design of the features section, including
+// image, heading, and feature items, with responsive adjustments.
+// ===========================================
+
 @use '../../styles/abstracts/colors.scss' as c;
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/font-mixins.scss' as fm;
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
 
-// ===========================================
-// Features Section - Main Container
-// ===========================================
 .features {
    
    padding-block: 3rem;
    
-   // Container for layout adjustments on larger screens
+   // ------------------------------------
+   // Container Styling
+   // Main layout container for the entire deatures section.
+   // ------------------------------------
    .container {
       gap: 2rem;
       display: flex;
@@ -27,6 +33,7 @@
 
    // ---------------------------------------
    // Image Section
+   // Handles the placement and visibility of the image in larger screens.
    // ---------------------------------------
    .features__image {
       grid-area: phone;
@@ -42,6 +49,7 @@
    
    // ---------------------------------------
    // Heading Section
+   // Handles the title and subtitle for the features section.
    // ---------------------------------------
    .features__heading {
       grid-area: heading;
@@ -76,9 +84,10 @@
    }   
     
 
-   // ---------------------------------------
-   // Grid Section
-   // ---------------------------------------
+   // ==========================
+   // Features Grid
+   // Defines the layout for each feature item.
+   // ==========================
    .features__grid {
       grid-area: feature;
       display: grid;
@@ -128,7 +137,9 @@
       // ---- Feature Description ----
       .feature-item-subtext {
          @include fm.text-style(fv.$b-md, c.$clr-text-secondary);
-         @include b.breakpoint(1400) { text-wrap: pretty; };
+         @include b.breakpoint(1400) {
+            text-wrap: pretty;
+         }
       }
    }   
 }

@@ -24,8 +24,12 @@
    // ---- Hero Title ----
    // Styles the main title in the hero section
    .hero__title {
-      @include b.breakpoint(768, max) { text-align: center; }
+      text-align: center;
       @include fm.text-style(fv.$h1, c.$clr-text-primary, 800);
+     
+      @include b.breakpoint(768) {
+         text-align: left;
+      }
    }
 
 
@@ -96,6 +100,10 @@
       .hero__description {
          @include fm.text-style(fv.$h6, c.$clr-text-secondary, 400, 1.6);
          padding-block: 0.75rem;
+
+         @include b.breakpoint(992) {
+            width: 80%
+         }
       }
 
 

@@ -1,3 +1,8 @@
+// ===========================================
+// FaqHeader Component
+// Displays the main heading and introductory text for the FAQ section.
+// ===========================================
+
 import React from 'react';
 import './faq-header.scss';
 

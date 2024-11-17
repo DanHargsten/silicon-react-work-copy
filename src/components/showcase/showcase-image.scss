@@ -1,3 +1,9 @@
+// ==========================================
+// Showcase Image Styling
+// Positions and resizes the showcase image with responsive adjustments
+// for different screen sizes.
+// ==========================================
+
 @use '../../styles/abstracts/breakpoints' as b;
 
 .showcase__image {
@@ -9,12 +15,10 @@
    margin-top: 2rem;
    display: none;
 
+   // Display from medium screens and up
    @include b.breakpoint(768) {
       display: block;    
    }
-   // @include b.breakpoint(768) {
-   //    display: block;  
-   // }
 
    @include b.breakpoint(1200) {
       bottom: 7.6rem;
@@ -26,8 +30,7 @@
          height: auto;
       }
    }
-      
-   
+        
    @include b.breakpoint(1400) {
       bottom: 8.5rem;
       right: 6.9rem;

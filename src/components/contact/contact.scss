@@ -5,30 +5,32 @@
 
 
 .hero {
-   height: 43.75rem;
-   margin-bottom: 11rem; // Add space for the block below
-
-   padding-bottom: 10rem;
+   padding-bottom: 5rem;
    background-color: c.$clr-background-secondary;
    
-   
-}
-   // Main Container Styles
-   // Wrapper that holds both the contact and consultation sections
-   .container {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-      // height: 43.75rem;
-      
-      @include b.breakpoint(768) {
-         flex-direction: row;
-      }
-      
-      // display: flex;
-      // justify-content: space-between;
-      
-      // height: 43.75rem;
+   // @include b.breakpoint(768) {
+   @include b.breakpoint(992) {
+      height: 40rem;
+      margin-bottom: 9rem; // Add space for the block below
+      padding-bottom: 10rem;
+   }
+
+   @include b.breakpoint(1200) {
+      height: 43.75rem;
+      margin-bottom: 11rem;
+      padding-bottom: 10rem;
    }
    
+}
 
+
+.container {
+   display: flex;
+   flex-direction: column;
+   gap: 4rem;
+   
+   // @include b.breakpoint(992) {
+   //    flex-direction: row;
+   //    gap: 0;
+   // }
+}

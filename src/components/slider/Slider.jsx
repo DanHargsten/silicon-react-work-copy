@@ -1,11 +1,21 @@
+// ==========================
+// Slider Component
+// Displays a slider with informational cards about how the app works.
+// Uses Swiper for touch-enabled and responsive slider functionality.
+//
+// Assistance with code structuring for Swiper by ChatGPT 
+// ==========================
+
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, EffectCoverflow } from 'swiper/modules';
+
+// --- Styling ----
 import 'swiper/css';
 import 'swiper/css/navigation'
-
 import './slider.scss';
 
+// ---- Slide Images ----
 import sliderMyBudget from '../../assets/images/illustrations/slider-my-budget.svg';
 import sliderYourCards from '../../assets/images/illustrations/slider-your-cards.svg';
 import sliderTransfer from '../../assets/images/illustrations/slider-transfer.svg';
@@ -14,6 +24,8 @@ import sliderContactList from '../../assets/images/illustrations/slider-contact-
 
 
 const Slider = () => {
+   // ========== Array: Slide Data ==========
+   // Array holding the data for each slide, including image, heading, and description
    const slides = [
       {
          image: sliderMyBudget,
@@ -37,15 +49,25 @@ const Slider = () => {
    ];
 
 
+   // ========== Render: Slider Section ==========
    return (
-      <div id="slider" className="slider-section">
+      <div
+         id="slider"
+         className="slider-section"
+         role="region"
+         aria-labelledby="slider-heading"
+         aria-describedby="slider-description"
+      >
          <div className="container">
+
+            {/* Section Header */}
             <div className="slider__header">
-               <h2 className="slider__header-title">How Does It Work?</h2>
-               {/* <p className="slider__header-description">Explore the steps below to see how Silicon makes your life easier</p> */}
+               <h2 id="slider-heading" className="slider__header-title">How Does It Work?</h2>
+               {/* <p id="slider-description" className="slider__header-description">Explore the steps below to see how Silicon makes your life easier</p> */}
             </div>
 
 
+            {/* Swiper Slider */}
             <Swiper
                modules={[Navigation]}
                grabCursor={true}
@@ -60,8 +82,10 @@ const Slider = () => {
                }}
                navigation
             >
+               {/* Generate each slide */}
                {slides.map((slide, index) => (
                   <SwiperSlide key={index}>
+                     {/* Slide Image */}
                      <img className="slider__img" src={slide.image} alt={slide.heading} />
                      <div className="slider__slide-text">
                         <h3 className="slider__slide-title">{slide.heading}</h3>

@@ -1,3 +1,10 @@
+// ==========================================
+// Slider Section
+// Handles the layout, design, and functionality for the slider section,
+// showcasing informational cards with Swiper for responsive and interactive
+// carousel functionality. Supports text, images, and ensures smooth
+// transitions between slides.
+// ==========================================
 
 @use '../../styles/abstracts/breakpoints.scss' as b;
 @use '../../styles/abstracts/colors.scss' as c;
@@ -5,10 +12,19 @@
 @use '../../styles/abstracts/font-variables.scss' as fv;
 
 
+// ==========================================
+// Layout and styling for the slider section, including Swiper components,
+// slide text, and images. Manages responsive behavior and visual effects.
+// ==========================================
 .slider-section {
    background-color: c.$clr-background-secondary;
    padding-block: 4rem;
 
+   
+   // -----------------------------------------
+   // Container Styling
+   // Centers the entire section content, with adjustments for larger screens.
+   // -----------------------------------------
    .container {
       gap: 2rem;
       display: flex;
@@ -20,6 +36,11 @@
       }
    }
 
+
+   // -----------------------------------------
+   // Slider Header
+   // Displays the section header title in the center.   
+   // -----------------------------------------
    .slider__header {
       display: flex;
       flex-direction: column;
@@ -32,12 +53,18 @@
       }
    }
 
+   
+   // -----------------------------------------
+   // Slide Text Styling
+   // Text elements within each slide, including title and description.
+   // -----------------------------------------
    .slider__slide-text {
-      display: none; 
+      display: none; // Hidden by default, shown for active slide
       text-align: center;
       margin-top: 10px;
    }
    
+   // ---- Header ----
    .slider__slide-title {
       margin-inline: auto;
       width: 80%;
@@ -48,6 +75,7 @@
       }
    }
 
+   // ---- Description ----
    .slider__slide-description {
       padding-inline: 0.75rem;
       margin-top: 1rem;
@@ -60,6 +88,10 @@
    }
 
 
+   // ==========================
+   // Swiper Styling
+   // Controls the styling and behavior of the Swiper elements.
+   // ==========================
    .swiper {
       width: 100%;
       max-width: 1200px;
@@ -68,8 +100,8 @@
    .swiper-slide {  
       height: auto;
       width: auto;
-      opacity: 0.75;
-      transform: scale(0.85);
+      opacity: 0.75; // Reduced opacity for non-active slides
+      transform: scale(0.85); // Smaller scale for non-active slides
       transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
    }
    
@@ -81,13 +113,17 @@
 
    
    .swiper-slide-active .slider__slide-text {
-      display: block;    }
+      display: block; // Display text only for the active slide
+   }
    
    
+   // ==========================
+   // Slide Image Styling
+   // Ensures slide images are centered and properly sized.
+   // ==========================   
    .slider__img {
       width: 300px;
       height: 660px;
       margin-inline: auto;
-
    }
 }

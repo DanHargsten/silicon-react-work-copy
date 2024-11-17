@@ -1,3 +1,9 @@
+// ==========================
+// Subscribe Component
+// Allows users to subscribe to the newsletter by entering their email.
+// Includes form validation and feedback upon submission.
+// ==========================
+
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useApi } from '../../context/ApiContext';
@@ -8,10 +14,14 @@ import bellIcon from '../../assets/images/illustrations/bell-icon.svg';
 import envelope from '../../assets/images/icons/envelope.svg';
 
 
+// ========== Component: Subscribe ==========
 const Subscribe = () => {
   
+  // ========== API Context ==========
   const { subscribe } = useApi();
 
+  
+  // ========== React Hook Form ==========  
   const {
     register,
     handleSubmit,
@@ -20,8 +30,12 @@ const Subscribe = () => {
     reset,
   } = useForm();
 
+  
+  // ========== State: Submission Feedback ==========
   const [submitted, setSubmitted] = useState(false);
 
+  
+   // ========== Form Submission Handler ==========
   const onSubmit = async (data) => {
     console.log("Subscribed with email:", data.email);
     try {
@@ -30,15 +44,13 @@ const Subscribe = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          email: data.email,
-        }),
+        body: JSON.stringify({ email: data.email }),
     });
 
     if (response.ok) {
       console.log('Subscription successful');
-      setSubmitted(true);
-      reset();
+      setSubmitted(true); // Show success message
+      reset(); // Reset form after successful submission
     } else {
       console.error('Failed to subscribe')
     }
@@ -47,27 +59,39 @@ const Subscribe = () => {
   }
 };
 
-  const handleOk = () => {
-    setSubmitted(false);
-  };
+
+// ========== Close Feedback Handler ==========
+const handleOk = () => {
+  setSubmitted(false);
+};
 
   
 
-  
+  // ========== Render: Subscribe Section ==========  
 return (
-  <section className="subscribe">
+  <section className="subscribe" aria-labelledby="subscribe-heading">
     <div className="container">
 
-      {submitted && (
-        <>
-          <div className="info-overlay">
-            <div className="info-box">
-              <h1>Thank you for subscribing</h1>
-              <p>Stay put for our newsletters</p>
-              <button className="btn-small btn-primary" onClick={handleOk}>Okay</button>
-            </div>
+      {/* Success Overlay */}
+      {submitted && (        
+        <div
+          className="info-overlay"
+          role="dialog"
+          aria-labelledby="thank-you-title"
+          aria-describedby="tank-you-message"
+        >
+          <div className="info-box">
+            <h1 id="thank-you-title">Thank you for subscribing</h1>
+            <p id="thank-you-message">Stay put for our newsletters</p>
+            <button
+              className="btn-small btn-primary"
+              onClick={handleOk}
+              aria-label="Close the thank-you message."
+            >
+              Okay
+            </button>
           </div>
-        </>
+        </div>        
       )}
           
       {/* Bell-icon and header */}
@@ -78,7 +102,6 @@ return (
 
 
       {/* Email input form */}
-      {/* <form onSubmit={handleSubmit(onSubmit)} noValidate className="subscribe__form" aria-label="Newsletter subscription form."> */}
       <form
         className="subscribe__form"
         aria-label="Newsletter subscription form."
@@ -88,18 +111,19 @@ return (
           const result = await trigger();
           if (result) handleSubmit(onSubmit)(e);
         }}
-        // {handleSubmit(onSubmit)}
       >
         <label htmlFor="email" className="sr-only">Enter your email to subscribe to our newsletter.</label>
       
+        {/* Input Wrapper */}
         <div className="subscribe__input-wrapper">            
-          {/* Envelope icon inside input */}
+          {/* Envelope Icon */}
           <img className="subscribe__input-icon" src={envelope} alt="Envelope icon." />
 
-          {/* Email input field */}
+          {/* Email Wnput */}
           <input
             className="subscribe__input"
             id="email"      
+            type='text'
             placeholder="Enter your email"
             aria-label="Enter your email to subscribe to our newsletter."
             {...register("email", {
@@ -109,14 +133,14 @@ return (
                 message: "Please enter a valid email adress"
               },
             })}
-            type='text'
           />
-            {errors.email && (
-              <p className="subscribe-error">{errors.email.message}</p>
-            )}
+          {/* Error Message */}
+          {errors.email && (
+            <p className="subscribe-error">{errors.email.message}</p>
+          )}
 
-            {/* Submit button */}
-            <button type="submit" className="subscribe__button btn-medium btn-primary">Subscribe</button>  
+          {/* Submit button */}
+          <button type="submit" className="subscribe__button btn-medium btn-primary">Subscribe</button>  
         </div>
       </form>    
     </div>

@@ -1,7 +1,13 @@
+// ==========================================
+// Showcase Content Styling
+// Handles the layout and design for the content section of the showcase,
+// including text, buttons, and the "Discover more" link.
+// ==========================================
 @use '../../styles/abstracts/breakpoints' as b;
 @use '../../styles/abstracts/colors' as c;
 @use '../../styles/abstracts/font-mixins' as fm;
 @use '../../styles/abstracts/font-variables' as fv;
+
 
 .showcase__content {
    grid-area: content;
@@ -21,7 +27,12 @@
       margin-top: 0;
     }
 
-    &-text {
+    
+   // ==========================
+   // Content Text Styling
+   // Handles the main description text for the showcase section.
+   // ==========================   
+   &-text {
       @include fm.text-style(fv.$b-lg, c.$clr-text-secondary, 400, 1.6);
       padding-top: 0.5em;
       width: 80%;
@@ -40,6 +51,11 @@
       }
    }
 
+   
+   // ==========================
+   // Buttons Section
+   // Handles layout and styling for the app download buttons.
+   // ==========================   
    .showcase__buttons {
       margin-top: 3rem;       
       display: flex;
@@ -58,6 +74,10 @@
    }
 
 
+   // ==========================
+   // "Discover More" Button
+   // Styles the "Discover more" button, including padding and alignment.
+   // ==========================   
    .showcase__more {
       padding-block: 3rem;
       display: flex;
@@ -84,6 +104,12 @@
    }
 }
 
+
+
+// ==========================
+// Dark Mode Styling for Buttons
+// Handles switching visibility of buttons based on light/dark mode.
+// ==========================
 body.dark-mode .showcase__buttons {
    .button--light {
       display: none;
