@@ -13,7 +13,11 @@
       gap: 2rem;
       display: flex;
       flex-direction: column;
-      align-items: center; 
+      align-items: center;
+      
+      @include b.breakpoint(768) {
+         width: 100%;
+      }
    }
 
    .slider__header {

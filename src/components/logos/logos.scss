@@ -14,7 +14,15 @@
 .logos {
    display: none;  // Hide all logos on mobile
    padding-top: 3rem;
-   @include b.breakpoint(768) { display: block; };  // Display from tablet size (768px) and up
+   
+   // Display from tablet size (768px) and up
+   @include b.breakpoint(768) {
+      display: block;
+   } 
+   @include b.breakpoint(1400) {
+      padding-bottom: 3rem;
+      padding-top: 5rem;
+   }
 
 
     // ---------- Logos Grid Container ----------

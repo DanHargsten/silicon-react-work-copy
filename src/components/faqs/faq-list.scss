@@ -11,6 +11,11 @@
 .faq {
    padding-block: 4rem;
 
+   @include b.breakpoint(1400) {
+      padding-top: 2rem;
+      padding-bottom: 6rem;
+   }
+
    .container {   
       gap: 1rem;
       display: grid;
@@ -91,5 +96,9 @@
       border: 1px solid c.$clr-grey-300;
       border-radius: 0.5rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  // Adds subtle shadow for depth and separation
+
+      @include b.breakpoint(1400) {
+         margin-bottom: 1rem;
+      }
    }
 }

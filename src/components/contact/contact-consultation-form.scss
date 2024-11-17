@@ -11,7 +11,6 @@
    width: 94%;  // Adding some space between the card and edge
    margin-inline: auto;
    padding-block: 2.5rem;
-   // padding-block: 2rem;
    
    position: relative;
    display: flex;
@@ -23,11 +22,11 @@
    @include b.breakpoint(768) {
       width: 40rem;
       height: 45rem;
-      // padding: 4.5rem;
+      padding: 4.5rem;
       padding-inline: 4rem;
 
    }
-   //top: 5rem; // Offsetting from the top to create visual separation
+   top: 5rem; // Offsetting from the top to create visual separation
 
 
    background-color: c.$clr-background-primary;

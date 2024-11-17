@@ -11,6 +11,7 @@ const contacts = () => {
       <>
          <main className="hero">
             <div className="container">
+            {/* <div className="container"> */}
                <ContactHero /> 
                <ContactConsultationForm />
             </div>
